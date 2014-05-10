@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		393B0C0B191E23BE0001F772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C0A191E23BE0001F772 /* Foundation.framework */; };
+		393B0C0D191E23BE0001F772 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C0C191E23BE0001F772 /* CoreGraphics.framework */; };
+		393B0C0F191E23BE0001F772 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C0E191E23BE0001F772 /* UIKit.framework */; };
+		393B0C15191E23BE0001F772 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C13191E23BE0001F772 /* InfoPlist.strings */; };
+		393B0C17191E23BE0001F772 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C16191E23BE0001F772 /* main.m */; };
+		393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C1A191E23BE0001F772 /* WNAppDelegate.m */; };
+		393B0C1E191E23BE0001F772 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C1C191E23BE0001F772 /* Main.storyboard */; };
+		393B0C21191E23BE0001F772 /* WNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C20191E23BE0001F772 /* WNViewController.m */; };
+		393B0C23191E23BE0001F772 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C22191E23BE0001F772 /* Images.xcassets */; };
+		393B0C2A191E23BE0001F772 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C29191E23BE0001F772 /* XCTest.framework */; };
+		393B0C2B191E23BE0001F772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C0A191E23BE0001F772 /* Foundation.framework */; };
+		393B0C2C191E23BE0001F772 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C0E191E23BE0001F772 /* UIKit.framework */; };
+		393B0C34191E23BE0001F772 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C32191E23BE0001F772 /* InfoPlist.strings */; };
+		393B0C36191E23BE0001F772 /* WatchNetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C35191E23BE0001F772 /* WatchNetTests.m */; };
+		393B0C48191E24050001F772 /* UzysSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C42191E24050001F772 /* UzysSlideMenu.m */; };
+		393B0C49191E24050001F772 /* UzysSMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C44191E24050001F772 /* UzysSMMenuItem.m */; };
+		393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 393B0C46191E24050001F772 /* UzysSMMenuItemView.m */; };
+		393B0C4B191E24050001F772 /* UzysSMMenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C47191E24050001F772 /* UzysSMMenuItemView.xib */; };
+		393B0C4D191E26470001F772 /* bgImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C4C191E26470001F772 /* bgImg@2x.png */; };
+		393B0C52191E26880001F772 /* a0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C4F191E26880001F772 /* a0@2x.png */; };
+		393B0C53191E26880001F772 /* a1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C50191E26880001F772 /* a1@2x.png */; };
+		393B0C54191E26880001F772 /* a2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C51191E26880001F772 /* a2@2x.png */; };
+		393B0C56191E2CDF0001F772 /* Panic2-150x150.png in Resources */ = {isa = PBXBuildFile; fileRef = 393B0C55191E2CDF0001F772 /* Panic2-150x150.png */; };
+		393B0C5A191E36E10001F772 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C59191E36E10001F772 /* Parse.framework */; };
+		393B0C76191E389A0001F772 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C6D191E389A0001F772 /* AudioToolbox.framework */; };
+		393B0C77191E389A0001F772 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C6E191E389A0001F772 /* CFNetwork.framework */; };
+		393B0C78191E389A0001F772 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C6F191E389A0001F772 /* CoreLocation.framework */; };
+		393B0C79191E389A0001F772 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C70191E389A0001F772 /* libz.dylib */; };
+		393B0C7A191E389A0001F772 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C71191E389A0001F772 /* MobileCoreServices.framework */; };
+		393B0C7B191E389A0001F772 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C72191E389A0001F772 /* QuartzCore.framework */; };
+		393B0C7C191E389A0001F772 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C73191E389A0001F772 /* Security.framework */; };
+		393B0C7D191E389A0001F772 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C74191E389A0001F772 /* StoreKit.framework */; };
+		393B0C7E191E389A0001F772 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C75191E389A0001F772 /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		393B0C2D191E23BE0001F772 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 393B0BFF191E23BE0001F772 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 393B0C06191E23BE0001F772;
+			remoteInfo = WatchNet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		393B0C07191E23BE0001F772 /* WatchNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		393B0C0A191E23BE0001F772 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		393B0C0C191E23BE0001F772 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		393B0C0E191E23BE0001F772 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		393B0C12191E23BE0001F772 /* WatchNet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WatchNet-Info.plist"; sourceTree = "<group>"; };
+		393B0C14191E23BE0001F772 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		393B0C16191E23BE0001F772 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		393B0C18191E23BE0001F772 /* WatchNet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchNet-Prefix.pch"; sourceTree = "<group>"; };
+		393B0C19191E23BE0001F772 /* WNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WNAppDelegate.h; sourceTree = "<group>"; };
+		393B0C1A191E23BE0001F772 /* WNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WNAppDelegate.m; sourceTree = "<group>"; };
+		393B0C1D191E23BE0001F772 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		393B0C1F191E23BE0001F772 /* WNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WNViewController.h; sourceTree = "<group>"; };
+		393B0C20191E23BE0001F772 /* WNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WNViewController.m; sourceTree = "<group>"; };
+		393B0C22191E23BE0001F772 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		393B0C28191E23BE0001F772 /* WatchNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		393B0C29191E23BE0001F772 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		393B0C31191E23BE0001F772 /* WatchNetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WatchNetTests-Info.plist"; sourceTree = "<group>"; };
+		393B0C33191E23BE0001F772 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		393B0C35191E23BE0001F772 /* WatchNetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchNetTests.m; sourceTree = "<group>"; };
+		393B0C40191E24050001F772 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
+		393B0C41191E24050001F772 /* UzysSlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysSlideMenu.h; sourceTree = "<group>"; };
+		393B0C42191E24050001F772 /* UzysSlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysSlideMenu.m; sourceTree = "<group>"; };
+		393B0C43191E24050001F772 /* UzysSMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysSMMenuItem.h; sourceTree = "<group>"; };
+		393B0C44191E24050001F772 /* UzysSMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysSMMenuItem.m; sourceTree = "<group>"; };
+		393B0C45191E24050001F772 /* UzysSMMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysSMMenuItemView.h; sourceTree = "<group>"; };
+		393B0C46191E24050001F772 /* UzysSMMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysSMMenuItemView.m; sourceTree = "<group>"; };
+		393B0C47191E24050001F772 /* UzysSMMenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UzysSMMenuItemView.xib; sourceTree = "<group>"; };
+		393B0C4C191E26470001F772 /* bgImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgImg@2x.png"; sourceTree = "<group>"; };
+		393B0C4F191E26880001F772 /* a0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a0@2x.png"; sourceTree = "<group>"; };
+		393B0C50191E26880001F772 /* a1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a1@2x.png"; sourceTree = "<group>"; };
+		393B0C51191E26880001F772 /* a2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a2@2x.png"; sourceTree = "<group>"; };
+		393B0C55191E2CDF0001F772 /* Panic2-150x150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Panic2-150x150.png"; sourceTree = "<group>"; };
+		393B0C59191E36E10001F772 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		393B0C6D191E389A0001F772 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		393B0C6E191E389A0001F772 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		393B0C6F191E389A0001F772 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		393B0C70191E389A0001F772 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		393B0C71191E389A0001F772 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		393B0C72191E389A0001F772 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		393B0C73191E389A0001F772 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		393B0C74191E389A0001F772 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		393B0C75191E389A0001F772 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		393B0C04191E23BE0001F772 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C76191E389A0001F772 /* AudioToolbox.framework in Frameworks */,
+				393B0C77191E389A0001F772 /* CFNetwork.framework in Frameworks */,
+				393B0C78191E389A0001F772 /* CoreLocation.framework in Frameworks */,
+				393B0C79191E389A0001F772 /* libz.dylib in Frameworks */,
+				393B0C7A191E389A0001F772 /* MobileCoreServices.framework in Frameworks */,
+				393B0C7B191E389A0001F772 /* QuartzCore.framework in Frameworks */,
+				393B0C7C191E389A0001F772 /* Security.framework in Frameworks */,
+				393B0C7D191E389A0001F772 /* StoreKit.framework in Frameworks */,
+				393B0C7E191E389A0001F772 /* SystemConfiguration.framework in Frameworks */,
+				393B0C0D191E23BE0001F772 /* CoreGraphics.framework in Frameworks */,
+				393B0C0F191E23BE0001F772 /* UIKit.framework in Frameworks */,
+				393B0C5A191E36E10001F772 /* Parse.framework in Frameworks */,
+				393B0C0B191E23BE0001F772 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393B0C25191E23BE0001F772 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C2A191E23BE0001F772 /* XCTest.framework in Frameworks */,
+				393B0C2C191E23BE0001F772 /* UIKit.framework in Frameworks */,
+				393B0C2B191E23BE0001F772 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		393B0BFE191E23BE0001F772 = {
+			isa = PBXGroup;
+			children = (
+				393B0C10191E23BE0001F772 /* WatchNet */,
+				393B0C2F191E23BE0001F772 /* WatchNetTests */,
+				393B0C09191E23BE0001F772 /* Frameworks */,
+				393B0C08191E23BE0001F772 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		393B0C08191E23BE0001F772 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C07191E23BE0001F772 /* WatchNet.app */,
+				393B0C28191E23BE0001F772 /* WatchNetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		393B0C09191E23BE0001F772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C6D191E389A0001F772 /* AudioToolbox.framework */,
+				393B0C6E191E389A0001F772 /* CFNetwork.framework */,
+				393B0C6F191E389A0001F772 /* CoreLocation.framework */,
+				393B0C70191E389A0001F772 /* libz.dylib */,
+				393B0C71191E389A0001F772 /* MobileCoreServices.framework */,
+				393B0C72191E389A0001F772 /* QuartzCore.framework */,
+				393B0C73191E389A0001F772 /* Security.framework */,
+				393B0C74191E389A0001F772 /* StoreKit.framework */,
+				393B0C75191E389A0001F772 /* SystemConfiguration.framework */,
+				393B0C59191E36E10001F772 /* Parse.framework */,
+				393B0C0A191E23BE0001F772 /* Foundation.framework */,
+				393B0C0C191E23BE0001F772 /* CoreGraphics.framework */,
+				393B0C0E191E23BE0001F772 /* UIKit.framework */,
+				393B0C29191E23BE0001F772 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		393B0C10191E23BE0001F772 /* WatchNet */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C55191E2CDF0001F772 /* Panic2-150x150.png */,
+				393B0C4E191E26880001F772 /* icons */,
+				393B0C4C191E26470001F772 /* bgImg@2x.png */,
+				393B0C3F191E24050001F772 /* Library */,
+				393B0C19191E23BE0001F772 /* WNAppDelegate.h */,
+				393B0C1A191E23BE0001F772 /* WNAppDelegate.m */,
+				393B0C1C191E23BE0001F772 /* Main.storyboard */,
+				393B0C1F191E23BE0001F772 /* WNViewController.h */,
+				393B0C20191E23BE0001F772 /* WNViewController.m */,
+				393B0C22191E23BE0001F772 /* Images.xcassets */,
+				393B0C11191E23BE0001F772 /* Supporting Files */,
+			);
+			path = WatchNet;
+			sourceTree = "<group>";
+		};
+		393B0C11191E23BE0001F772 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C12191E23BE0001F772 /* WatchNet-Info.plist */,
+				393B0C13191E23BE0001F772 /* InfoPlist.strings */,
+				393B0C16191E23BE0001F772 /* main.m */,
+				393B0C18191E23BE0001F772 /* WatchNet-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		393B0C2F191E23BE0001F772 /* WatchNetTests */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C35191E23BE0001F772 /* WatchNetTests.m */,
+				393B0C30191E23BE0001F772 /* Supporting Files */,
+			);
+			path = WatchNetTests;
+			sourceTree = "<group>";
+		};
+		393B0C30191E23BE0001F772 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C31191E23BE0001F772 /* WatchNetTests-Info.plist */,
+				393B0C32191E23BE0001F772 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		393B0C3F191E24050001F772 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C40191E24050001F772 /* ARCHelper.h */,
+				393B0C41191E24050001F772 /* UzysSlideMenu.h */,
+				393B0C42191E24050001F772 /* UzysSlideMenu.m */,
+				393B0C43191E24050001F772 /* UzysSMMenuItem.h */,
+				393B0C44191E24050001F772 /* UzysSMMenuItem.m */,
+				393B0C45191E24050001F772 /* UzysSMMenuItemView.h */,
+				393B0C46191E24050001F772 /* UzysSMMenuItemView.m */,
+				393B0C47191E24050001F772 /* UzysSMMenuItemView.xib */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		393B0C4E191E26880001F772 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				393B0C4F191E26880001F772 /* a0@2x.png */,
+				393B0C50191E26880001F772 /* a1@2x.png */,
+				393B0C51191E26880001F772 /* a2@2x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		393B0C06191E23BE0001F772 /* WatchNet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393B0C39191E23BE0001F772 /* Build configuration list for PBXNativeTarget "WatchNet" */;
+			buildPhases = (
+				393B0C03191E23BE0001F772 /* Sources */,
+				393B0C04191E23BE0001F772 /* Frameworks */,
+				393B0C05191E23BE0001F772 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchNet;
+			productName = WatchNet;
+			productReference = 393B0C07191E23BE0001F772 /* WatchNet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		393B0C27191E23BE0001F772 /* WatchNetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 393B0C3C191E23BE0001F772 /* Build configuration list for PBXNativeTarget "WatchNetTests" */;
+			buildPhases = (
+				393B0C24191E23BE0001F772 /* Sources */,
+				393B0C25191E23BE0001F772 /* Frameworks */,
+				393B0C26191E23BE0001F772 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				393B0C2E191E23BE0001F772 /* PBXTargetDependency */,
+			);
+			name = WatchNetTests;
+			productName = WatchNetTests;
+			productReference = 393B0C28191E23BE0001F772 /* WatchNetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		393B0BFF191E23BE0001F772 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WN;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = RescueMe;
+				TargetAttributes = {
+					393B0C27191E23BE0001F772 = {
+						TestTargetID = 393B0C06191E23BE0001F772;
+					};
+				};
+			};
+			buildConfigurationList = 393B0C02191E23BE0001F772 /* Build configuration list for PBXProject "WatchNet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 393B0BFE191E23BE0001F772;
+			productRefGroup = 393B0C08191E23BE0001F772 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				393B0C06191E23BE0001F772 /* WatchNet */,
+				393B0C27191E23BE0001F772 /* WatchNetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		393B0C05191E23BE0001F772 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C23191E23BE0001F772 /* Images.xcassets in Resources */,
+				393B0C54191E26880001F772 /* a2@2x.png in Resources */,
+				393B0C4B191E24050001F772 /* UzysSMMenuItemView.xib in Resources */,
+				393B0C53191E26880001F772 /* a1@2x.png in Resources */,
+				393B0C56191E2CDF0001F772 /* Panic2-150x150.png in Resources */,
+				393B0C15191E23BE0001F772 /* InfoPlist.strings in Resources */,
+				393B0C52191E26880001F772 /* a0@2x.png in Resources */,
+				393B0C1E191E23BE0001F772 /* Main.storyboard in Resources */,
+				393B0C4D191E26470001F772 /* bgImg@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393B0C26191E23BE0001F772 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C34191E23BE0001F772 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		393B0C03191E23BE0001F772 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C49191E24050001F772 /* UzysSMMenuItem.m in Sources */,
+				393B0C21191E23BE0001F772 /* WNViewController.m in Sources */,
+				393B0C17191E23BE0001F772 /* main.m in Sources */,
+				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
+				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,
+				393B0C48191E24050001F772 /* UzysSlideMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		393B0C24191E23BE0001F772 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				393B0C36191E23BE0001F772 /* WatchNetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		393B0C2E191E23BE0001F772 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 393B0C06191E23BE0001F772 /* WatchNet */;
+			targetProxy = 393B0C2D191E23BE0001F772 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		393B0C13191E23BE0001F772 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393B0C14191E23BE0001F772 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		393B0C1C191E23BE0001F772 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393B0C1D191E23BE0001F772 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		393B0C32191E23BE0001F772 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				393B0C33191E23BE0001F772 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		393B0C37191E23BE0001F772 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		393B0C38191E23BE0001F772 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		393B0C3A191E23BE0001F772 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
+				INFOPLIST_FILE = "WatchNet/WatchNet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		393B0C3B191E23BE0001F772 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
+				INFOPLIST_FILE = "WatchNet/WatchNet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		393B0C3D191E23BE0001F772 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WatchNet.app/WatchNet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WatchNetTests/WatchNetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		393B0C3E191E23BE0001F772 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WatchNet.app/WatchNet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
+				INFOPLIST_FILE = "WatchNetTests/WatchNetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		393B0C02191E23BE0001F772 /* Build configuration list for PBXProject "WatchNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393B0C37191E23BE0001F772 /* Debug */,
+				393B0C38191E23BE0001F772 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		393B0C39191E23BE0001F772 /* Build configuration list for PBXNativeTarget "WatchNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393B0C3A191E23BE0001F772 /* Debug */,
+				393B0C3B191E23BE0001F772 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		393B0C3C191E23BE0001F772 /* Build configuration list for PBXNativeTarget "WatchNetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				393B0C3D191E23BE0001F772 /* Debug */,
+				393B0C3E191E23BE0001F772 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 393B0BFF191E23BE0001F772 /* Project object */;
+}
