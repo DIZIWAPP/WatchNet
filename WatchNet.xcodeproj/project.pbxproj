@@ -40,6 +40,8 @@
 		393B0C7C191E389A0001F772 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C73191E389A0001F772 /* Security.framework */; };
 		393B0C7D191E389A0001F772 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C74191E389A0001F772 /* StoreKit.framework */; };
 		393B0C7E191E389A0001F772 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C75191E389A0001F772 /* SystemConfiguration.framework */; };
+		694FEA51191EB71900AECA5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694FEA50191EB71900AECA5B /* MapKit.framework */; };
+		69CCF85C191E417E00DF4661 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCF85B191E417E00DF4661 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,9 @@
 		393B0C73191E389A0001F772 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		393B0C74191E389A0001F772 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		393B0C75191E389A0001F772 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		694FEA50191EB71900AECA5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		69CCF85A191E417E00DF4661 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Library/MapViewController.h; sourceTree = "<group>"; };
+		69CCF85B191E417E00DF4661 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Library/MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 				393B0C77191E389A0001F772 /* CFNetwork.framework in Frameworks */,
 				393B0C78191E389A0001F772 /* CoreLocation.framework in Frameworks */,
 				393B0C79191E389A0001F772 /* libz.dylib in Frameworks */,
+				694FEA51191EB71900AECA5B /* MapKit.framework in Frameworks */,
 				393B0C7A191E389A0001F772 /* MobileCoreServices.framework in Frameworks */,
 				393B0C7B191E389A0001F772 /* QuartzCore.framework in Frameworks */,
 				393B0C7C191E389A0001F772 /* Security.framework in Frameworks */,
@@ -153,6 +159,7 @@
 		393B0C09191E23BE0001F772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				694FEA50191EB71900AECA5B /* MapKit.framework */,
 				393B0C6D191E389A0001F772 /* AudioToolbox.framework */,
 				393B0C6E191E389A0001F772 /* CFNetwork.framework */,
 				393B0C6F191E389A0001F772 /* CoreLocation.framework */,
@@ -180,6 +187,8 @@
 				393B0C3F191E24050001F772 /* Library */,
 				393B0C19191E23BE0001F772 /* WNAppDelegate.h */,
 				393B0C1A191E23BE0001F772 /* WNAppDelegate.m */,
+				69CCF85A191E417E00DF4661 /* MapViewController.h */,
+				69CCF85B191E417E00DF4661 /* MapViewController.m */,
 				393B0C1C191E23BE0001F772 /* Main.storyboard */,
 				393B0C1F191E23BE0001F772 /* WNViewController.h */,
 				393B0C20191E23BE0001F772 /* WNViewController.m */,
@@ -349,6 +358,7 @@
 			files = (
 				393B0C49191E24050001F772 /* UzysSMMenuItem.m in Sources */,
 				393B0C21191E23BE0001F772 /* WNViewController.m in Sources */,
+				69CCF85C191E417E00DF4661 /* MapViewController.m in Sources */,
 				393B0C17191E23BE0001F772 /* main.m in Sources */,
 				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
 				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,
@@ -565,6 +575,7 @@
 				393B0C3B191E23BE0001F772 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		393B0C3C191E23BE0001F772 /* Build configuration list for PBXNativeTarget "WatchNetTests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +584,7 @@
 				393B0C3E191E23BE0001F772 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
