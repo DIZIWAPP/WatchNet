@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WNFBLoginViewController : UIViewController
+@interface WNFBLoginViewController : UIViewController<UIScrollViewDelegate>
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

@@ -42,6 +42,15 @@
 		393B0C7E191E389A0001F772 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C75191E389A0001F772 /* SystemConfiguration.framework */; };
 		39B9466F191EA2BC00F404CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B9466E191EA2BC00F404CD /* FacebookSDK.framework */; };
 		39B94672191EA9B700F404CD /* WNFBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94671191EA9B700F404CD /* WNFBLoginViewController.m */; };
+		39B94675191ECD6C00F404CD /* WNSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94674191ECD6C00F404CD /* WNSettingsViewController.m */; };
+		39B94678191EE58300F404CD /* WNMyTrustedCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94677191EE58300F404CD /* WNMyTrustedCircleViewController.m */; };
+		39B9468C191EEC2200F404CD /* THPinViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39B9467A191EEC2200F404CD /* THPinViewController.strings */; };
+		39B9468D191EEC2200F404CD /* THPinInputCirclesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94681191EEC2200F404CD /* THPinInputCirclesView.m */; };
+		39B9468E191EEC2200F404CD /* THPinInputCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94683191EEC2200F404CD /* THPinInputCircleView.m */; };
+		39B9468F191EEC2200F404CD /* THPinNumButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94685191EEC2200F404CD /* THPinNumButton.m */; };
+		39B94690191EEC2200F404CD /* THPinNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94687191EEC2200F404CD /* THPinNumPadView.m */; };
+		39B94691191EEC2200F404CD /* THPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94689191EEC2200F404CD /* THPinView.m */; };
+		39B94692191EEC2200F404CD /* THPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B9468B191EEC2200F404CD /* THPinViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +109,27 @@
 		39B9466E191EA2BC00F404CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		39B94670191EA9B700F404CD /* WNFBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNFBLoginViewController.h; sourceTree = "<group>"; };
 		39B94671191EA9B700F404CD /* WNFBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNFBLoginViewController.m; sourceTree = "<group>"; };
+		39B94673191ECD6C00F404CD /* WNSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNSettingsViewController.h; sourceTree = "<group>"; };
+		39B94674191ECD6C00F404CD /* WNSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNSettingsViewController.m; sourceTree = "<group>"; };
+		39B94676191EE58300F404CD /* WNMyTrustedCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNMyTrustedCircleViewController.h; path = WatchNet/WNMyTrustedCircleViewController.h; sourceTree = "<group>"; };
+		39B94677191EE58300F404CD /* WNMyTrustedCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNMyTrustedCircleViewController.m; path = WatchNet/WNMyTrustedCircleViewController.m; sourceTree = "<group>"; };
+		39B9467B191EEC2200F404CD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/THPinViewController.strings; sourceTree = "<group>"; };
+		39B9467C191EEC2200F404CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/THPinViewController.strings; sourceTree = "<group>"; };
+		39B9467D191EEC2200F404CD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/THPinViewController.strings; sourceTree = "<group>"; };
+		39B9467E191EEC2200F404CD /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/THPinViewController.strings; sourceTree = "<group>"; };
+		39B9467F191EEC2200F404CD /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/THPinViewController.strings; sourceTree = "<group>"; };
+		39B94680191EEC2200F404CD /* THPinInputCirclesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinInputCirclesView.h; sourceTree = "<group>"; };
+		39B94681191EEC2200F404CD /* THPinInputCirclesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinInputCirclesView.m; sourceTree = "<group>"; };
+		39B94682191EEC2200F404CD /* THPinInputCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinInputCircleView.h; sourceTree = "<group>"; };
+		39B94683191EEC2200F404CD /* THPinInputCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinInputCircleView.m; sourceTree = "<group>"; };
+		39B94684191EEC2200F404CD /* THPinNumButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinNumButton.h; sourceTree = "<group>"; };
+		39B94685191EEC2200F404CD /* THPinNumButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinNumButton.m; sourceTree = "<group>"; };
+		39B94686191EEC2200F404CD /* THPinNumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinNumPadView.h; sourceTree = "<group>"; };
+		39B94687191EEC2200F404CD /* THPinNumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinNumPadView.m; sourceTree = "<group>"; };
+		39B94688191EEC2200F404CD /* THPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinView.h; sourceTree = "<group>"; };
+		39B94689191EEC2200F404CD /* THPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinView.m; sourceTree = "<group>"; };
+		39B9468A191EEC2200F404CD /* THPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinViewController.h; sourceTree = "<group>"; };
+		39B9468B191EEC2200F404CD /* THPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +170,11 @@
 		393B0BFE191E23BE0001F772 = {
 			isa = PBXGroup;
 			children = (
+				39B94679191EEC2200F404CD /* THPinViewController */,
+				39B94676191EE58300F404CD /* WNMyTrustedCircleViewController.h */,
+				39B94677191EE58300F404CD /* WNMyTrustedCircleViewController.m */,
+				39B94673191ECD6C00F404CD /* WNSettingsViewController.h */,
+				39B94674191ECD6C00F404CD /* WNSettingsViewController.m */,
 				39B94670191EA9B700F404CD /* WNFBLoginViewController.h */,
 				39B94671191EA9B700F404CD /* WNFBLoginViewController.m */,
 				393B0C10191E23BE0001F772 /* WatchNet */,
@@ -252,6 +287,26 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		39B94679191EEC2200F404CD /* THPinViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39B9467A191EEC2200F404CD /* THPinViewController.strings */,
+				39B94680191EEC2200F404CD /* THPinInputCirclesView.h */,
+				39B94681191EEC2200F404CD /* THPinInputCirclesView.m */,
+				39B94682191EEC2200F404CD /* THPinInputCircleView.h */,
+				39B94683191EEC2200F404CD /* THPinInputCircleView.m */,
+				39B94684191EEC2200F404CD /* THPinNumButton.h */,
+				39B94685191EEC2200F404CD /* THPinNumButton.m */,
+				39B94686191EEC2200F404CD /* THPinNumPadView.h */,
+				39B94687191EEC2200F404CD /* THPinNumPadView.m */,
+				39B94688191EEC2200F404CD /* THPinView.h */,
+				39B94689191EEC2200F404CD /* THPinView.m */,
+				39B9468A191EEC2200F404CD /* THPinViewController.h */,
+				39B9468B191EEC2200F404CD /* THPinViewController.m */,
+			);
+			path = THPinViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +367,10 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				fr,
+				it,
 			);
 			mainGroup = 393B0BFE191E23BE0001F772;
 			productRefGroup = 393B0C08191E23BE0001F772 /* Products */;
@@ -336,6 +395,7 @@
 				393B0C56191E2CDF0001F772 /* Panic2-150x150.png in Resources */,
 				393B0C15191E23BE0001F772 /* InfoPlist.strings in Resources */,
 				393B0C52191E26880001F772 /* a0@2x.png in Resources */,
+				39B9468C191EEC2200F404CD /* THPinViewController.strings in Resources */,
 				393B0C1E191E23BE0001F772 /* Main.storyboard in Resources */,
 				393B0C4D191E26470001F772 /* bgImg@2x.png in Resources */,
 			);
@@ -357,12 +417,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				393B0C49191E24050001F772 /* UzysSMMenuItem.m in Sources */,
+				39B94692191EEC2200F404CD /* THPinViewController.m in Sources */,
+				39B9468E191EEC2200F404CD /* THPinInputCircleView.m in Sources */,
+				39B9468F191EEC2200F404CD /* THPinNumButton.m in Sources */,
 				393B0C21191E23BE0001F772 /* WNViewController.m in Sources */,
+				39B94675191ECD6C00F404CD /* WNSettingsViewController.m in Sources */,
 				393B0C17191E23BE0001F772 /* main.m in Sources */,
 				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
 				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,
+				39B94691191EEC2200F404CD /* THPinView.m in Sources */,
 				393B0C48191E24050001F772 /* UzysSlideMenu.m in Sources */,
+				39B94678191EE58300F404CD /* WNMyTrustedCircleViewController.m in Sources */,
 				39B94672191EA9B700F404CD /* WNFBLoginViewController.m in Sources */,
+				39B9468D191EEC2200F404CD /* THPinInputCirclesView.m in Sources */,
+				39B94690191EEC2200F404CD /* THPinNumPadView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +475,18 @@
 				393B0C33191E23BE0001F772 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		39B9467A191EEC2200F404CD /* THPinViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39B9467B191EEC2200F404CD /* de */,
+				39B9467C191EEC2200F404CD /* en */,
+				39B9467D191EEC2200F404CD /* es */,
+				39B9467E191EEC2200F404CD /* fr */,
+				39B9467F191EEC2200F404CD /* it */,
+			);
+			name = THPinViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

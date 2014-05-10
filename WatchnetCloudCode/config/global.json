@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "WatchNet": {
+            "applicationId": "bYd0F5U08Lvm9oS7z7X9Pk8p4KZOFe6lN7dHCAQy", 
+            "masterKey": "VhZQWR1P2jnB0u7BANUBJnyfxiGDGM0kXbMTuVbY"
+        }, 
+        "_default": {
+            "link": "WatchNet"
+        }
+    }
+}
