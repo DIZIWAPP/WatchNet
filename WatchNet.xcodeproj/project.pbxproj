@@ -121,6 +121,7 @@
 				393B0C0F191E23BE0001F772 /* UIKit.framework in Frameworks */,
 				393B0C5A191E36E10001F772 /* Parse.framework in Frameworks */,
 				393B0C0B191E23BE0001F772 /* Foundation.framework in Frameworks */,
+				39B9466F191EA2BC00F404CD /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +141,8 @@
 		393B0BFE191E23BE0001F772 = {
 			isa = PBXGroup;
 			children = (
+				39B94670191EA9B700F404CD /* WNFBLoginViewController.h */,
+				39B94671191EA9B700F404CD /* WNFBLoginViewController.m */,
 				393B0C10191E23BE0001F772 /* WatchNet */,
 				393B0C2F191E23BE0001F772 /* WatchNetTests */,
 				393B0C09191E23BE0001F772 /* Frameworks */,
@@ -363,6 +366,7 @@
 				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
 				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,
 				393B0C48191E24050001F772 /* UzysSlideMenu.m in Sources */,
+				39B94672191EA9B700F404CD /* WNFBLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,10 +494,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/mkumar/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
 				INFOPLIST_FILE = "WatchNet/WatchNet-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -507,10 +513,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/mkumar/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WatchNet/WatchNet-Prefix.pch";
 				INFOPLIST_FILE = "WatchNet/WatchNet-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
