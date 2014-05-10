@@ -4,12 +4,16 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>FacebookAppID</key>
+	<string>1420860681512659</string>
+	<key>FacebookDisplayName</key>
+	<string>WatchNetRescueMe</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rescueme.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>org.rescueme.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,6 +33,15 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1420860681512659</string>
+			</array>
+		</dict>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
