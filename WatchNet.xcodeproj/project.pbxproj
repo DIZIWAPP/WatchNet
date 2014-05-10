@@ -141,6 +141,7 @@
 				393B0C77191E389A0001F772 /* CFNetwork.framework in Frameworks */,
 				393B0C78191E389A0001F772 /* CoreLocation.framework in Frameworks */,
 				393B0C79191E389A0001F772 /* libz.dylib in Frameworks */,
+				694FEA51191EB71900AECA5B /* MapKit.framework in Frameworks */,
 				393B0C7A191E389A0001F772 /* MobileCoreServices.framework in Frameworks */,
 				393B0C7B191E389A0001F772 /* QuartzCore.framework in Frameworks */,
 				393B0C7C191E389A0001F772 /* Security.framework in Frameworks */,
@@ -196,7 +197,7 @@
 		393B0C09191E23BE0001F772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39B9466E191EA2BC00F404CD /* FacebookSDK.framework */,
+				694FEA50191EB71900AECA5B /* MapKit.framework */,
 				393B0C6D191E389A0001F772 /* AudioToolbox.framework */,
 				393B0C6E191E389A0001F772 /* CFNetwork.framework */,
 				393B0C6F191E389A0001F772 /* CoreLocation.framework */,
@@ -224,6 +225,8 @@
 				393B0C3F191E24050001F772 /* Library */,
 				393B0C19191E23BE0001F772 /* WNAppDelegate.h */,
 				393B0C1A191E23BE0001F772 /* WNAppDelegate.m */,
+				69CCF85A191E417E00DF4661 /* MapViewController.h */,
+				69CCF85B191E417E00DF4661 /* MapViewController.m */,
 				393B0C1C191E23BE0001F772 /* Main.storyboard */,
 				393B0C1F191E23BE0001F772 /* WNViewController.h */,
 				393B0C20191E23BE0001F772 /* WNViewController.m */,

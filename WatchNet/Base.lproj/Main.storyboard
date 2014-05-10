@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xDW-dl-Ylx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="93U-gF-gwd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -29,6 +29,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onPanicPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="T2I-zk-s6T"/>
+                                    <segue destination="5Ec-qS-leS" kind="push" id="0qf-ci-SBq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,12 +48,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="100"/>
+            <point key="canvasLocation" x="786" y="100"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="5bS-QW-ynp">
+        <!--Map View Controller-->
+        <scene sceneID="Zos-a2-zU9">
             <objects>
-                <viewController id="2mC-dm-TBd" customClass="WNFBLoginViewController" sceneMemberID="viewController">
+                <viewController id="5Ec-qS-leS" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mQ6-4u-vrU"/>
                         <viewControllerLayoutGuide type="bottom" id="oRI-TG-nIF"/>
@@ -173,7 +174,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="notifyTextLabel" destination="GFe-3Z-3kP" id="WcA-vQ-Tvl"/>
@@ -218,22 +219,22 @@
             <point key="canvasLocation" x="764" y="927"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="yye-Zs-ZAu">
+        <scene sceneID="Def-Aq-hcJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xDW-dl-Ylx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="93U-gF-gwd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="imX-uv-TIZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RyS-4n-yue">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="6Sd-LS-4T6"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="0mA-3w-4sN"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6K2-FS-CKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="te7-bA-Bsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="100"/>
+            <point key="canvasLocation" x="385" y="760"/>
         </scene>
     </scenes>
     <resources>
