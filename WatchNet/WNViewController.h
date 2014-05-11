@@ -6,14 +6,21 @@
 //  Copyright (c) 2014 RescueMe. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface WNViewController : UIViewController<UIScrollViewDelegate>
+@interface WNViewController : UIViewController<UIScrollViewDelegate>//, <THPinViewControllerDelegate>
+@property (retain, nonatomic)CLLocationManager *locationManager;
 
 - (IBAction)actionMenu:(id)sender;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
 @property (retain, nonatomic) IBOutlet UIButton *btnMain;
+
+- (void)timerTicked:(NSTimer*)timer;
+
 
 @end

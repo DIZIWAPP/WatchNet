@@ -62,11 +62,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeN-fK-LDl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96086888299999995" green="0.90126328529999999" blue="0.96322943240000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-Qi-LiL" customClass="FBLoginView">
                                 <rect key="frame" x="20" y="340" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +81,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" red="0.96086888299999995" green="0.90126328529999999" blue="0.96322943240000003" alpha="1" colorSpace="calibratedRGB"/>
                     </scrollView>
                     <connections>
                         <outlet property="scrollView" destination="fnI-na-jEc" id="gzd-LB-RqV"/>
@@ -93,7 +89,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJY-PP-Q9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="-220"/>
+            <point key="canvasLocation" x="1233" y="-224"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ujK-tG-35H">
+            <objects>
+                <viewController id="AFq-av-hh3" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PiU-ND-vKP"/>
+                        <viewControllerLayoutGuide type="bottom" id="M8k-9y-uwK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r2D-w9-KHj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Pmr-AE-rGK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="key-Vb-tam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="-280"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="XOa-Xu-Bxi">
@@ -190,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcR-XE-hUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="476"/>
+            <point key="canvasLocation" x="1159" y="536"/>
         </scene>
         <!--My Trusted Circle View Controller-->
         <scene sceneID="DaR-ci-DPy">
@@ -222,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fR-kl-CS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="1036"/>
+            <point key="canvasLocation" x="1141" y="1292"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yye-Zs-ZAu">
