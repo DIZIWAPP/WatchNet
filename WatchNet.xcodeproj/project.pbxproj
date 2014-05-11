@@ -51,6 +51,19 @@
 		39B94690191EEC2200F404CD /* THPinNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94687191EEC2200F404CD /* THPinNumPadView.m */; };
 		39B94691191EEC2200F404CD /* THPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B94689191EEC2200F404CD /* THPinView.m */; };
 		39B94692191EEC2200F404CD /* THPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B9468B191EEC2200F404CD /* THPinViewController.m */; };
+		39B9469E191EF2CA00F404CD /* chat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94693191EF2CA00F404CD /* chat_icon.png */; };
+		39B9469F191EF2CA00F404CD /* home_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94694191EF2CA00F404CD /* home_icon.png */; };
+		39B946A0191EF2CA00F404CD /* loved_ones.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94695191EF2CA00F404CD /* loved_ones.png */; };
+		39B946A1191EF2CA00F404CD /* network_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94696191EF2CA00F404CD /* network_icon.png */; };
+		39B946A2191EF2CA00F404CD /* panic_NOT_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94697191EF2CA00F404CD /* panic_NOT_pressed.png */; };
+		39B946A3191EF2CA00F404CD /* panic_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94698191EF2CA00F404CD /* panic_pressed.png */; };
+		39B946A4191EF2CA00F404CD /* profile_icon_woman.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B94699191EF2CA00F404CD /* profile_icon_woman.png */; };
+		39B946A5191EF2CA00F404CD /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B9469A191EF2CA00F404CD /* profile_icon.png */; };
+		39B946A6191EF2CA00F404CD /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B9469B191EF2CA00F404CD /* settings_icon.png */; };
+		39B946A7191EF2CA00F404CD /* Watchnet logo v4.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B9469C191EF2CA00F404CD /* Watchnet logo v4.png */; };
+		39B946A8191EF2CA00F404CD /* Watchnet_Live_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B9469D191EF2CA00F404CD /* Watchnet_Live_icon.png */; };
+		694FEA51191EB71900AECA5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694FEA50191EB71900AECA5B /* MapKit.framework */; };
+		69CCF85C191E417E00DF4661 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CCF85B191E417E00DF4661 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +143,20 @@
 		39B94689191EEC2200F404CD /* THPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinView.m; sourceTree = "<group>"; };
 		39B9468A191EEC2200F404CD /* THPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinViewController.h; sourceTree = "<group>"; };
 		39B9468B191EEC2200F404CD /* THPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinViewController.m; sourceTree = "<group>"; };
+		39B94693191EF2CA00F404CD /* chat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_icon.png; sourceTree = "<group>"; };
+		39B94694191EF2CA00F404CD /* home_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_icon.png; sourceTree = "<group>"; };
+		39B94695191EF2CA00F404CD /* loved_ones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loved_ones.png; sourceTree = "<group>"; };
+		39B94696191EF2CA00F404CD /* network_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = network_icon.png; sourceTree = "<group>"; };
+		39B94697191EF2CA00F404CD /* panic_NOT_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panic_NOT_pressed.png; sourceTree = "<group>"; };
+		39B94698191EF2CA00F404CD /* panic_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panic_pressed.png; sourceTree = "<group>"; };
+		39B94699191EF2CA00F404CD /* profile_icon_woman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon_woman.png; sourceTree = "<group>"; };
+		39B9469A191EF2CA00F404CD /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		39B9469B191EF2CA00F404CD /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
+		39B9469C191EF2CA00F404CD /* Watchnet logo v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Watchnet logo v4.png"; sourceTree = "<group>"; };
+		39B9469D191EF2CA00F404CD /* Watchnet_Live_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Watchnet_Live_icon.png; sourceTree = "<group>"; };
+		694FEA50191EB71900AECA5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		69CCF85A191E417E00DF4661 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Library/MapViewController.h; sourceTree = "<group>"; };
+		69CCF85B191E417E00DF4661 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Library/MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +310,17 @@
 		393B0C4E191E26880001F772 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				39B94693191EF2CA00F404CD /* chat_icon.png */,
+				39B94694191EF2CA00F404CD /* home_icon.png */,
+				39B94695191EF2CA00F404CD /* loved_ones.png */,
+				39B94696191EF2CA00F404CD /* network_icon.png */,
+				39B94697191EF2CA00F404CD /* panic_NOT_pressed.png */,
+				39B94698191EF2CA00F404CD /* panic_pressed.png */,
+				39B94699191EF2CA00F404CD /* profile_icon_woman.png */,
+				39B9469A191EF2CA00F404CD /* profile_icon.png */,
+				39B9469B191EF2CA00F404CD /* settings_icon.png */,
+				39B9469C191EF2CA00F404CD /* Watchnet logo v4.png */,
+				39B9469D191EF2CA00F404CD /* Watchnet_Live_icon.png */,
 				393B0C4F191E26880001F772 /* a0@2x.png */,
 				393B0C50191E26880001F772 /* a1@2x.png */,
 				393B0C51191E26880001F772 /* a2@2x.png */,
@@ -391,13 +429,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B946A6191EF2CA00F404CD /* settings_icon.png in Resources */,
 				393B0C23191E23BE0001F772 /* Images.xcassets in Resources */,
+				39B9469E191EF2CA00F404CD /* chat_icon.png in Resources */,
 				393B0C54191E26880001F772 /* a2@2x.png in Resources */,
 				393B0C4B191E24050001F772 /* UzysSMMenuItemView.xib in Resources */,
+				39B946A5191EF2CA00F404CD /* profile_icon.png in Resources */,
+				39B946A3191EF2CA00F404CD /* panic_pressed.png in Resources */,
 				393B0C53191E26880001F772 /* a1@2x.png in Resources */,
+				39B946A4191EF2CA00F404CD /* profile_icon_woman.png in Resources */,
+				39B9469F191EF2CA00F404CD /* home_icon.png in Resources */,
+				39B946A2191EF2CA00F404CD /* panic_NOT_pressed.png in Resources */,
 				393B0C56191E2CDF0001F772 /* Panic2-150x150.png in Resources */,
+				39B946A7191EF2CA00F404CD /* Watchnet logo v4.png in Resources */,
 				393B0C15191E23BE0001F772 /* InfoPlist.strings in Resources */,
 				393B0C52191E26880001F772 /* a0@2x.png in Resources */,
+				39B946A8191EF2CA00F404CD /* Watchnet_Live_icon.png in Resources */,
+				39B946A1191EF2CA00F404CD /* network_icon.png in Resources */,
+				39B946A0191EF2CA00F404CD /* loved_ones.png in Resources */,
 				39B9468C191EEC2200F404CD /* THPinViewController.strings in Resources */,
 				393B0C1E191E23BE0001F772 /* Main.storyboard in Resources */,
 				393B0C4D191E26470001F772 /* bgImg@2x.png in Resources */,
@@ -425,6 +474,7 @@
 				39B9468F191EEC2200F404CD /* THPinNumButton.m in Sources */,
 				393B0C21191E23BE0001F772 /* WNViewController.m in Sources */,
 				39B94675191ECD6C00F404CD /* WNSettingsViewController.m in Sources */,
+				69CCF85C191E417E00DF4661 /* MapViewController.m in Sources */,
 				393B0C17191E23BE0001F772 /* main.m in Sources */,
 				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
 				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,

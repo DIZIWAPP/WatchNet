@@ -39,7 +39,7 @@
     
     
     ah__block typeof(self) blockSelf = self;
-    UzysSMMenuItem *item0 = [[UzysSMMenuItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"a0.png"] action:^(UzysSMMenuItem *item) {
+    UzysSMMenuItem *item0 = [[UzysSMMenuItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"home_icon.png"] action:^(UzysSMMenuItem *item) {
         NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
         
         [UIView animateWithDuration:0.2 animations:^{
@@ -49,7 +49,7 @@
 
     }];
     
-    UzysSMMenuItem *item1 = [[UzysSMMenuItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"a1.png"] action:^(UzysSMMenuItem *item) {
+    UzysSMMenuItem *item1 = [[UzysSMMenuItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"settings_icon.png"] action:^(UzysSMMenuItem *item) {
         NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
         [UIView animateWithDuration:0.2 animations:^{
   //          blockSelf.btnMain.frame = CGRectMake(10, 150, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
@@ -66,7 +66,7 @@
         
         
     }];
-    UzysSMMenuItem *item2 = [[UzysSMMenuItem alloc] initWithTitle:@"Sign In" image:[UIImage imageNamed:@"a2.png"] action:^(UzysSMMenuItem *item) {
+    UzysSMMenuItem *item2 = [[UzysSMMenuItem alloc] initWithTitle:@"Sign In" image:[UIImage imageNamed:@"profile_icon_woman.png"] action:^(UzysSMMenuItem *item) {
         NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
         [UIView animateWithDuration:0.2 animations:^{
  //           blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
@@ -85,7 +85,7 @@
             
         }
     }];
-    UzysSMMenuItem *item3 = [[UzysSMMenuItem alloc] initWithTitle:@"My Trusted Circle" image:[UIImage imageNamed:@"a2.png"] action:^(UzysSMMenuItem *item) {
+    UzysSMMenuItem *item3 = [[UzysSMMenuItem alloc] initWithTitle:@"My Trusted Circle" image:[UIImage imageNamed:@"network_icon.png"] action:^(UzysSMMenuItem *item) {
         NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
         [UIView animateWithDuration:0.2 animations:^{
             //         blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
@@ -104,7 +104,7 @@
     }];
 
 
-    UzysSMMenuItem *item4 = [[UzysSMMenuItem alloc] initWithTitle:@"WatchNet Live" image:[UIImage imageNamed:@"a2.png"] action:^(UzysSMMenuItem *item) {
+    UzysSMMenuItem *item4 = [[UzysSMMenuItem alloc] initWithTitle:@"WatchNet Live" image:[UIImage imageNamed:@"Watchnet_Live_icon.png"] action:^(UzysSMMenuItem *item) {
         NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
         [UIView animateWithDuration:0.2 animations:^{
    //         blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
