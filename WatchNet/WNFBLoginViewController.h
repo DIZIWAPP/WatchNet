@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WNEmailSignupViewController.h"
 
 @interface WNFBLoginViewController : UIViewController<UIScrollViewDelegate>
-@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, weak) id <authenticateCompleteDelegate> delegate;
+
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

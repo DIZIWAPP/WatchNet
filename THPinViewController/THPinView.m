@@ -185,12 +185,22 @@
 
 - (void)updateBottomButton
 {
-    if ([self.input length] == 0) {
+/*    if ([self.input length] == 0) {
         [self.bottomButton setTitle:NSLocalizedStringFromTable(@"cancel_button_title", @"THPinViewController", nil)
                            forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
-    } else {
+        
+        
+    } else*/
+    {
+        if([self.input length] == 0)
+        {
+            self.bottomButton.enabled = FALSE;
+        }else{
+            self.bottomButton.enabled = TRUE;
+            
+        }
         [self.bottomButton setTitle:NSLocalizedStringFromTable(@"delete_button_title", @"THPinViewController", nil)
                            forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];

@@ -7,17 +7,90 @@
 //
 
 #import "WNAppDelegate.h"
-
+#import "MapViewController.h"
 @implementation WNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [Parse setApplicationId:@"bYd0F5U08Lvm9oS7z7X9Pk8p4KZOFe6lN7dHCAQy"
-                  clientKey:@"mzjqDfpI9Sd9pItCi3KPV9jiGk4D3Ht4pqmwYp7J"];
+    [Parse setApplicationId:@"KSxCqPQWT10pBsOqaFlEgK4Ps9ubZ8khqL3cd3RC"
+                  clientKey:@"6U9CWaA08Qh5CqELxOC7gR8mQJ23VWN08WqqrFJD"];
+    
+    application.applicationSupportsShakeToEdit = YES;
+    
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+    
+    // Extract the notification data
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(notificationPayload != nil)
+    {
+        [self showDistressLocation:notificationPayload];
+        
+    }
+    
+    [_window makeKeyAndVisible];
+
+    
     return YES;
 }
-							
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    //[PFPush handlePush:userInfo];
+    
+    [self showDistressLocation:userInfo];
+    
+    
+}
+
+//- (void) showDistressLocation:(CLLocation*)distressLocation
+-(void) showDistressLocation:(NSDictionary*) notificationInfo
+{
+    
+    NSString* strLatitude = [notificationInfo objectForKey:@"latitude"];
+    NSString* strLongitude = [notificationInfo objectForKey:@"longitude"];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"MyAlertView"
+                                                        message: [NSString stringWithFormat:@"lat= %@, log = %@", strLatitude, strLongitude]
+                                                       delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+
+    CLLocation* distressLocation = [[CLLocation alloc]initWithLatitude:[strLatitude doubleValue] longitude:[strLongitude doubleValue]];
+    
+    
+    UITabBarController* tabbarVC = (UITabBarController*)self.window.rootViewController;
+    
+    MapViewController* mapVC    = tabbarVC.viewControllers[1];
+    mapVC.reportedLocation      = distressLocation;
+    
+    tabbarVC.selectedIndex = 1;
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+}
+
+
+- (void)application:(UIApplication *)application
+didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"MyAlertView"
+                                                        message:@"Local notification was received"
+                                                       delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,12 +113,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [PFUser logOut];
 }
 
+
+
 - (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
+                                openURL:(NSURL *)url
+                                sourceApplication:(NSString *)sourceApplication
+                                annotation:(id)annotation {
+    
+    NSLog(@"Launched with URL: %@", url.absoluteString);
+
+    
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];

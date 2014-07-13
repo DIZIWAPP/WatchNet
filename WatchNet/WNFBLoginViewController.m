@@ -7,12 +7,18 @@
 //
 
 #import "WNFBLoginViewController.h"
-#import "UzysSlideMenu.h"
+#import "WNEmailSignupViewController.h"
+#import "WNFEmailSigninViewController.h"
+#import <Parse/Parse.h>
+
 #define IS_IOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7
 
 @interface WNFBLoginViewController ()
-@property (nonatomic,strong) UzysSlideMenu *uzysSMenu;
-- (IBAction)onDone:(id)sender;
+//@property (nonatomic,strong) UzysSlideMenu *uzysSMenu;
+- (IBAction)onSignInClick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *userEmail;
+@property (weak, nonatomic) IBOutlet UITextField *userPassword;
 
 @end
 
@@ -27,55 +33,16 @@
     return self;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   
     /*
-    // Do any additional setup after loading the view.
-    CGRect frame = [UIScreen mainScreen].applicationFrame;
-    self.view.frame = frame;
-    self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.imageView.bounds.size.height);
-    self.scrollView.delegate =self;
-    
-    
-    ah__block typeof(self) blockSelf = self;
-    UzysSMMenuItem *item0 = [[UzysSMMenuItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"a0.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        
-        [UIView animateWithDuration:0.2 animations:^{
-    //        blockSelf.btnMain.frame = CGRectMake(100, 200, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        [blockSelf dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    UzysSMMenuItem *item1 = [[UzysSMMenuItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"a1.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-      //      blockSelf.btnMain.frame = CGRectMake(10, 150, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        
-        
-    }];
-    UzysSMMenuItem *item2 = [[UzysSMMenuItem alloc] initWithTitle:@"Sign In" image:[UIImage imageNamed:@"a2.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-        //    blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        
-    }];
-    
-    UzysSMMenuItem *item3 = [[UzysSMMenuItem alloc] initWithTitle:@"WatchNet Live" image:[UIImage imageNamed:@"a2.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-//            blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-    }];
-    item0.tag = 0;
-    item1.tag = 1;
-    item2.tag = 2;
-    item3.tag = 3;
-    
     NSInteger statusbarHeight = 0;
     if(IS_IOS7)
         statusbarHeight = 20;
@@ -88,6 +55,7 @@
      */
 
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -106,8 +74,44 @@
 }
 */
 
-- (IBAction)onDone:(id)sender {
-    [self  dismissViewControllerAnimated:YES completion:nil];
 
+- (IBAction)onCancel:(id)sender {
+
+    [self.navigationController popViewControllerAnimated:true];
 }
+
+- (IBAction)onSignInClick:(id)sender {
+    
+    
+    if([_userEmail.text length] == 0 ||
+       [_userPassword.text length] == 0)
+    {
+        return;
+    }
+    
+    
+    [PFUser logInWithUsernameInBackground:_userEmail.text password:_userPassword.text
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            // Do stuff after successful login.
+                                            NSLog(@"Login successful");
+                                            [self.delegate authenticateComplete:true];
+
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                            NSLog([NSString stringWithFormat:(@"error %@", error.description) ]);
+                                            [self showError:[NSString stringWithFormat:(@"error %@", error.description) ]];
+                                        }
+                                    }];
+
+    
+}
+
+-(void)showError:(NSString*) errMessage
+{
+    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sign in failed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+    
+    [alertView show];
+}
+
 @end

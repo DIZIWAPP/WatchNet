@@ -17,9 +17,12 @@
 	
     MKMapView *mapView;
     
-    CLLocation *loc;
+//    CLLocation *currentLocation;
+//    CLLocation* reportedLocation;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) CLLocation* reportedLocation;
+@property (nonatomic, retain) CLLocation* currentLocation;
 
 @end

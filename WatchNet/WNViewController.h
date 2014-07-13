@@ -11,8 +11,14 @@
 #import <MapKit/MapKit.h>
 
 #import <FacebookSDK/FacebookSDK.h>
+#import "THPinViewController.h"
 
-@interface WNViewController : UIViewController<UIScrollViewDelegate>//, <THPinViewControllerDelegate>
+
+
+@interface WNViewController : UIViewController<UIScrollViewDelegate, UITabBarControllerDelegate, THPinViewControllerDelegate, CLLocationManagerDelegate> //, <THPinViewControllerDelegate>
+{
+    CLLocationManager* _locationManager;
+}
 @property (retain, nonatomic)CLLocationManager *locationManager;
 
 - (IBAction)actionMenu:(id)sender;

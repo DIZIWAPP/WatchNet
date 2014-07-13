@@ -7,23 +7,24 @@
 //
 
 #import "WNViewController.h"
-#import "UzysSlideMenu.h"
 #import <Parse/Parse.h>
 #import "WNFBLoginViewController.h"
 #import "THPinViewController.h"
+#import "MapViewController.h"
 #define IS_IOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7
 
 
 @interface WNViewController ()
-@property (nonatomic,strong) UzysSlideMenu *uzysSMenu;
 @property (weak, nonatomic) IBOutlet UIButton *panicButton;
 - (IBAction)onPanicPressed:(id)sender;
 
-@property(nonatomic,assign) UzysSMState _currentMenuState;
 @property(nonatomic,assign) NSInteger   currentAppState;
 
 @property(nonatomic, copy) NSString* correctPin;
 @property(nonatomic, assign) int remainingPinEntries;
+@property(nonatomic, assign) CLLocationAccuracy desiredAccuracy;
+@property(nonatomic, strong)CLLocation* currentLocation;
+@property(nonatomic, strong)NSTimer* cancelTimer;
 
 @end
 
@@ -32,130 +33,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if([PFUser currentUser])
+    {
+//        [PFUser logOut];
+    }
+
 	// Do any additional setup after loading the view, typically from a nib.
-    _correctPin = @"1234";
-    _remainingPinEntries = 3;
-    _currentAppState = 0;
-    CGRect frame = [UIScreen mainScreen].applicationFrame;
-    self.view.frame = frame;
-    self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.imageView.bounds.size.height);
-    self.scrollView.delegate =self;
+    _correctPin             = @"1234";
+    _remainingPinEntries    = 3;
+    _currentAppState        = 0;
+    _desiredAccuracy        = kCLLocationAccuracyNearestTenMeters;
+    self.tabBarController.delegate              = self;
+    self.tabBarController.tabBar.translucent    = true;
     
     
-    ah__block typeof(self) blockSelf = self;
-    UzysSMMenuItem *item0 = [[UzysSMMenuItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"home_icon.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
+    _locationManager = [[CLLocationManager alloc]init];
+    _locationManager.delegate               = self;
+    
+    [_locationManager startMonitoringSignificantLocationChanges];
+    
+    if (![PFUser currentUser]) { // No user logged in
         
-        [UIView animateWithDuration:0.2 animations:^{
-//            blockSelf.btnMain.frame = CGRectMake(100, 200, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        _currentAppState = 0;
-
-    }];
-    
-    UzysSMMenuItem *item1 = [[UzysSMMenuItem alloc] initWithTitle:@"Settings" image:[UIImage imageNamed:@"settings_icon.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-  //          blockSelf.btnMain.frame = CGRectMake(10, 150, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-            if(   _currentAppState != 1)
-            {            _currentAppState = 1;
-                [blockSelf performSegueWithIdentifier:@"showSettings" sender:self];
-            }else
-            {
-                [blockSelf.uzysSMenu toggleMenu];
-                
-            }
-
-        }];
-        
-        
-    }];
-    UzysSMMenuItem *item2 = [[UzysSMMenuItem alloc] initWithTitle:@"Sign In" image:[UIImage imageNamed:@"profile_icon_woman.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
- //           blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        
-        {
-            if(_currentAppState != 2)
-            {
-                _currentAppState = 2;
-                [blockSelf performSegueWithIdentifier:@"showFBLogin" sender:self];
-            }else
-            {
-                [blockSelf.uzysSMenu toggleMenu];
-                
-            }
-            
-        }
-    }];
-    UzysSMMenuItem *item3 = [[UzysSMMenuItem alloc] initWithTitle:@"My Trusted Circle" image:[UIImage imageNamed:@"network_icon.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-            //         blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        
-        if(_currentAppState != 3)
-        {
-            _currentAppState = 3;
-            [blockSelf performSegueWithIdentifier:@"showMyCircle" sender:self];
-        }else
-        {
-            [blockSelf.uzysSMenu toggleMenu];
-            
-        }
-        
-    }];
-
-
-    UzysSMMenuItem *item4 = [[UzysSMMenuItem alloc] initWithTitle:@"WatchNet Live" image:[UIImage imageNamed:@"Watchnet_Live_icon.png"] action:^(UzysSMMenuItem *item) {
-        NSLog(@"Item: %@ menuState : %d", item , blockSelf.uzysSMenu.menuState);
-        [UIView animateWithDuration:0.2 animations:^{
-   //         blockSelf.btnMain.frame = CGRectMake(10, 250, blockSelf.btnMain.bounds.size.width, blockSelf.btnMain.bounds.size.height);
-        }];
-        _currentAppState = 4;
-
-    }];
-    item0.tag = 0;
-    item1.tag = 1;
-    item2.tag = 2;
-    item3.tag = 3;
-    item3.tag = 4;
-    
-    NSInteger statusbarHeight = 0;
-    if(IS_IOS7)
-        statusbarHeight = 20;
-    
-    self.uzysSMenu = [[UzysSlideMenu alloc] initWithItems:@[item0,item1,item2, item3,item4]];
-    self.uzysSMenu.frame = CGRectMake(self.uzysSMenu.frame.origin.x, self.uzysSMenu.frame.origin.y+ statusbarHeight, self.uzysSMenu.frame.size.width, self.uzysSMenu.frame.size.height);
-    
-    [self.view addSubview:self.uzysSMenu];
-    self.navigationController.navigationBarHidden = YES;
-    
-    /////////////
-    
-   // PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-   // testObject[@"foo"] = @"bar";
-   // [testObject saveInBackground];
-    
-    ///////////////
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-//    self.uzysSMenu.state = STATE_ICON_MENU;
-//    [self.uzysSMenu setupLayout];
-//    [self.uz showIconMenu:NO];
-
-   // [self.uzysSMenu toggleMenu];
-    [self.uzysSMenu openIconMenu];
-    //[self.uzysSMenu toggleMenu];
-    [self.uzysSMenu openMenu:STATE_ICON_MENU animated:YES];
-//    self.uzysSMenu
+        [self performLogin];
+    }
 
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -165,22 +67,14 @@
 }
 
 - (void)dealloc {
-    [_scrollView release];
-    [_imageView release];
-    [_btnMain release];
-    [super ah_dealloc];
+
 }
 
-- (IBAction)actionMenu:(id)sender {
-    NSLog(@"Btn touch");
-    [self.uzysSMenu toggleMenu];
-}
 
 #pragma mark - UIScrollViewDelegate
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.uzysSMenu openIconMenu];
     
 }
 
@@ -189,29 +83,82 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (IBAction)onPanicPressed:(id)sender {
 
-/*    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Panic Party" message:@"Party Time" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    
-    [alert show];
- */
+
+-(void) showCancelUI
+{
     
     THPinViewController *pinViewController = [[THPinViewController alloc] initWithDelegate:self];
     
-    pinViewController.backgroundColor =self.view.backgroundColor;
-//    pinViewController.backgroundColor = [UIColor lightGrayColor];
-    pinViewController.promptTitle = @"Sending... Enter PIN to cancel";
-    pinViewController.promptColor = [UIColor lightGrayColor];
-    pinViewController.view.tintColor = [UIColor lightGrayColor];
-    pinViewController.hideLetters = YES;
-    [self createTimer];
+    pinViewController.backgroundColor   = self.view.backgroundColor;
+    pinViewController.promptTitle       = @"Enter PIN to stop distress call ...";
+    pinViewController.promptColor       = [UIColor blueColor];
+    pinViewController.view.tintColor    = [UIColor blueColor];
+    pinViewController.hideLetters       = YES;
+    _cancelTimer = [self createTimer];
     [self presentViewController:pinViewController animated:YES completion:nil];
+    
 }
+
+- (IBAction)onPanicPressed:(id)sender {
+
+    [self showCancelUI];
+}
+- (IBAction)onClickLogout:(id)sender {
+    
+    [PFUser logOut];
+}
+
+-(BOOL)canBecomeFirstResponder {
+    
+    if([PFUser currentUser])
+        return YES;
+    else
+        return NO;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+ //   [PFUser logOut];
+    
+    if (![PFUser currentUser]) { // No user logged in
+        
+        
+    }
+}
+
+- (void) performLogin
+{
+    UIStoryboard *storyboard = self.storyboard;
+    WNFBLoginViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"SignupViewController"];
+    UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:svc];
+    
+    [self presentViewController:nav animated:NO completion:nil];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    
+    
+    if (![PFUser currentUser]) { // No user logged in
+        
+        [self performLogin];
+    }else
+        [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
 
 - (NSTimer*)createTimer {
     
     // create timer on run loop
-    return [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timerTicked:) userInfo:nil repeats:NO];
+    return [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(timerTicked:) userInfo:nil repeats:NO];
 }
 
 - (void)timerTicked:(NSTimer*)timer {
@@ -219,6 +166,12 @@
     [_locationManager startMonitoringSignificantLocationChanges];
 
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    UIAlertView* aView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Timer ticked" delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+    [aView show];
+
+    [self sendPush:_currentLocation];
+
     
     // increment timer 2 … bump time and redraw in UI
 
@@ -246,15 +199,62 @@
     return (_remainingPinEntries > 0);
 }
 
+- (void)pinViewControllerWillDismissAfterPinEntryWasCancelled:(THPinViewController *)pinViewController
+{
+    
+}
+
 // optional delegate methods
 
-- (void)incorrectPinEnteredInPinViewController:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerWillDismissAfterPinEntryWasSuccessful:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerDidDismissAfterPinEntryWasSuccessful:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerWillDismissAfterPinEntryWasUnsuccessful:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerDidDismissAfterPinEntryWasUnsuccessful:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerWillDismissAfterPinEntryWasCancelled:(THPinViewController *)pinViewController {}
-- (void)pinViewControllerDidDismissAfterPinEntryWasCancelled:(THPinViewController *)pinViewController {}
+- (void)incorrectPinEnteredInPinViewController:(THPinViewController *)pinViewController {
+    
+    /* INCORRECT PIN */
+    UIAlertView* aView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Entered wrong PIN. Try again..." delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+    [aView show];
+    
+}
+
+- (void)pinViewControllerWillDismissAfterPinEntryWasSuccessful:(THPinViewController *)pinViewController {
+    
+
+    [self.cancelTimer invalidate];
+    self.cancelTimer = nil;
+    
+    UIAlertView* aView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@" Successfully cancelled" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [aView show];
+    
+    
+
+    /* LOCAL NOTIFICATION
+     
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    localNotification.alertBody = @"Your alert message";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+     
+     */
+
+    
+}
+
+- (void)pinViewControllerDidDismissAfterPinEntryWasSuccessful:(THPinViewController *)pinViewController {
+
+}
+
+- (void)pinViewControllerWillDismissAfterPinEntryWasUnsuccessful:(THPinViewController *)pinViewController {
+    
+}
+
+- (void)pinViewControllerDidDismissAfterPinEntryWasUnsuccessful:(THPinViewController *)pinViewController {
+
+
+}
+
+
+- (void)pinViewControllerDidDismissAfterPinEntryWasCancelled:(THPinViewController *)pinViewController {
+
+}
 
 ////======
 
@@ -268,24 +268,82 @@
 	[errorAlert show];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+    _currentLocation = [locations lastObject];
+    NSLog(@"did updateLocations Location : %@", [locations lastObject]);
+
+}
+
 // Got location and now update
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
+    
+    NSLog(@"New Location : %@", newLocation);
     [self sendPush:newLocation];
 	
 }
 
 - (void) sendPush:(CLLocation *)location
 {
+
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"Someone Needs your help NOW!", @"alert",
-                          @"Vaughn", @"name",
-                          @"Man bites dog", @"newsItem",
+                          @"Mahesh", @"name",
+                          [NSString stringWithFormat:@"%f",location.coordinate.latitude ], @"latitude",
+                          [NSString stringWithFormat:@"%f",location.coordinate.longitude ], @"longitude",
                           nil];
+
+    
+    // Create our Installation query
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+
     PFPush *push = [[PFPush alloc] init];
-    [push setChannel:@"Panick"];
+    //[push setChannel:@"Everyone"];
     [push setData:data];
-    [push sendPushInBackground];
+    [push setQuery:pushQuery];
+    
+    //TODO:Push this logic to Parse cloud Code
+    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded)
+        {
+            NSLog(@"Push message succeeded.");
+            
+        }else
+        {
+            NSLog(@"Push message failed.");
+            
+        }
+    }];
+
+    
+     /*
+    // Send push notification to query
+    [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                   withMessage:[   NSString stringWithFormat:@"Distress call... around %f %f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude ]];
+      */
+    
 }
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+     
+        UIAlertView *errorAlert = [[UIAlertView alloc]
+                                   initWithTitle:@"Error" message:@"Motion detected" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [errorAlert show];
+
+    }
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    tabBarController.tabBar.translucent = (viewController != self);
+    return YES;
+}
+
 
 @end
