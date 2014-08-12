@@ -12,20 +12,15 @@
 @interface WNTrustCircle : NSObject
 
 
-@property (nonatomic, strong) NSMutableArray* circleMembers;
-//@property (nonatomic, strong) NSMutableArray* circleMembers;
+@property (nonatomic, strong)   NSMutableArray* circleMembers;
+
 @property (nonatomic, strong) id    circleOwnerID;//PFObject;
 
-- (void)fetchCircleForUser: (id) ownerID withCompletionBlock: (void (^)(NSError *error)) callback;
 
+- (void)fetchTrustCircleWithCompletionBlock: (void (^)(NSError *error)) callback;
 
+- (id) findMemberWithEmail:(NSString*) emailID;
 
-- (void)fetchCircleForUser: (id) ownerID;
-
-- (void)saveToServer;
-
--(id) findMemberWithEmail:(NSString*) emailID;
-
-- (id)findMemberWithPhone: (NSString*) phone;
+- (id) findMemberWithPhone: (NSString*) phone;
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface WNFTrustedCircleTableViewController : UITableViewController
+@interface WNFTrustedCircleTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+
+
 
 @end

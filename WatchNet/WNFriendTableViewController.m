@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 RescueMe. All rights reserved.
 //
 
-#import "WNFAddFriendTableViewController.h"
+#import "WNFriendTableViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <Parse/Parse.h>
 #import "TrustCircleMember.h"
 
-@interface WNFAddFriendTableViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, MFMessageComposeViewControllerDelegate>
+
+@interface WNFriendTableViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, MFMessageComposeViewControllerDelegate>
 {
 PFObject* friendDetailsObject;
 
@@ -21,13 +22,14 @@ PFObject* friendDetailsObject;
 
 @end
 
-@implementation WNFAddFriendTableViewController
+@implementation WNFriendTableViewController
 @synthesize memberInfo;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.tableView.tableFooterView = [[UIView alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,8 +40,12 @@ PFObject* friendDetailsObject;
 //    [self.navigationItem.rightBarButtonItem setTitle:@"Test"];
     
     friendDetailsObject = nil;
-    [self queryFriendDetails];
-    
+
+    if(self.isEditMode == YES)
+    {
+        [self queryFriendDetails];
+        
+    }
     
 }
 
@@ -48,44 +54,53 @@ PFObject* friendDetailsObject;
 
     [super viewWillAppear:animated];
 
+}
 
+-(void)initializeUI
+{
+ if(_isEditMode)
+ {
+     UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(onClickAdd:)];
+     self.navigationItem.rightBarButtonItem = barButton;
+     
+     
+     
+     UIButton* inviteBtn = (UIButton*)[self.tableView viewWithTag:1010];
+     inviteBtn.hidden = YES;
+
+     
+ }else{
+     UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onClickAdd:)];
+     self.navigationItem.rightBarButtonItem = barButton;
+     
+     UIButton* inviteBtn = (UIButton*)[self.tableView viewWithTag:1010];
+     inviteBtn.hidden = NO;
+
+ }
 }
 
 
 - (void) queryFriendDetails
 {
-        PFQuery* settingsQuery = [PFQuery queryWithClassName:@"UserDetails"];
-        [settingsQuery whereKey:@"responderTo" equalTo:[PFUser currentUser]];
+        PFQuery* userQuery = [PFQuery queryWithClassName:@"User"];
+        [userQuery whereKey:@"email" equalTo:memberInfo.email];
     
     __weak typeof (self) weakSelf = self;
-        [settingsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 // The find succeeded.
                 // Do something with the found objects
                 friendDetailsObject    = [objects lastObject];
-                
-                
-                if(friendDetailsObject == nil)
-                {
-                    //                [self.view setNeedsDisplay];
-                    
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onClickAdd:)];
-                        weakSelf.navigationItem.rightBarButtonItem = barButton;
-                        
-                        UIButton* inviteBtn = (UIButton*)[weakSelf.tableView viewWithTag:1010];
-                        inviteBtn.hidden = NO;
-                        
-                    });
-                    
-                }else{
-                    //                [self.view setNeedsDisplay];
 
+                /*
+                 Check if user already exists in RescueMe network, if So then hide InviteButton
+                */
                 
+                if(friendDetailsObject)
+                {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(onClickAdd:)];
-                        weakSelf.navigationItem.rightBarButtonItem = barButton;
+                        weakSelf.navigationItem.rightBarButtonItem  = barButton;
                         
                         UIButton* inviteBtn = (UIButton*)[weakSelf.tableView viewWithTag:1010];
                         inviteBtn.hidden = YES;
@@ -108,6 +123,7 @@ PFObject* friendDetailsObject;
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.isEditMode = NO;
     }
     return self;
 }
@@ -143,7 +159,7 @@ PFObject* friendDetailsObject;
         return;
     }
     
-    NSArray *recipents = [[NSArray alloc]initWithArray:[self.memberInfo.phoneList allValues]];
+    NSArray *recipents = @[self.memberInfo.phone];
     NSString *message = @" Dear, \n \n Please join me at Rescue Me community to make a difference.\
                             \n For more details check https://Rescueme.org \n \n \
                             with best regards, \n \n Mahesh";
@@ -166,10 +182,11 @@ PFObject* friendDetailsObject;
         [[MFMailComposeViewController alloc] init];
         
         //NSArray *toRecipients = [NSArray arrayWithObjects:@"fisrtMail@example.com", @"secondMail@example.com", nil];
-        NSArray* toRecipients = [NSArray arrayWithArray:self.memberInfo.emailAddresses];
+        NSArray* toRecipients = @[self.memberInfo.email];
         [mailComposer setToRecipients:toRecipients];
         
         [mailComposer setSubject:@"Make a difference: Join me @ RescueMe"];
+        //TODO: FORMAT the message with user name
         NSString *message = @" Dear, \n \n Please join me at Rescue Me community to make a difference.\
                             \n For more details check https://Rescueme.org \n \n \
                             with best regards, \n \n Mahesh";
@@ -190,11 +207,11 @@ PFObject* friendDetailsObject;
 
 
 
-
 - (IBAction)saveFriendDetails{
     PFUser* user = [PFUser currentUser];
+    BOOL updateCircleInfo   = !self.isEditMode;
     
-    friendDetailsObject = [self.memberInfo toPFObject];
+  //  friendDetailsObject = [self.memberInfo toPFObject];
     
     /*
     if(!friendDetailsObject)
@@ -213,8 +230,8 @@ PFObject* friendDetailsObject;
 //    PFRelation *relation = [friendDetailsObject relationforKey:@"responderTo"];
   //  [relation addObject:user];
     
-    [friendDetailsObject setObject:user forKey:@"responderTo"];
-    
+//    [friendDetailsObject setObject:user forKey:@"responderTo"];
+
  //   [friendDetailsObject setObject:user forKey:@"rescueMeID"];
     
     [friendDetailsObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -308,10 +325,10 @@ PFObject* friendDetailsObject;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    int rowIndex    = indexPath.row;
-    int emailCount  = [self.memberInfo.emailAddresses count];
-    int phoneCount  = [self.memberInfo.phoneList count];
-    int rowCount    = [self calculateNumOfRows];
+    long rowIndex    = indexPath.row;
+    int emailCount  = 1;//[self.memberInfo.emailAddresses count];
+    int phoneCount  = 1;//[self.memberInfo.phoneList count];
+    long rowCount    = [self calculateNumOfRows];
 
     if(indexPath.row == 0)
     {
@@ -320,13 +337,14 @@ PFObject* friendDetailsObject;
         UILabel* lbl = (UILabel*)[cell viewWithTag:1004];
         lbl.text = [NSString stringWithFormat:@"%@ , %@", [memberInfo firstName], [memberInfo lastName] ];
         
+/*
         lbl = (UILabel*)[cell viewWithTag:1005];
         NSString* companyName = [memberInfo companyName];
         if (companyName == nil) {
             lbl.text = @"";
         }else
             lbl.text = [memberInfo companyName];
-        
+ */
         
     }
     else if (indexPath.row == [tableView numberOfRowsInSection:0] - 1)
@@ -337,26 +355,26 @@ PFObject* friendDetailsObject;
     }
     else if (indexPath.row > 0 && indexPath.row <= phoneCount)
     {
-        int index = indexPath.row - 1;
-        NSString* keyName =[memberInfo.phoneList allKeys][indexPath.row - 1];
+        long index = indexPath.row - 1;
+        //NSString* keyName = [memberInfo.phoneList allKeys][indexPath.row - 1];
         cell = [tableView dequeueReusableCellWithIdentifier:@"phoneinfocell" forIndexPath:indexPath];
         UILabel* lbl = (UILabel*)[cell viewWithTag:1006];
-        lbl.text = keyName;
+        lbl.text = @"phone";//keyName;
         
         lbl = (UILabel*)[cell viewWithTag:1007];
-        lbl.text = [memberInfo.phoneList objectForKey:keyName];
+        lbl.text = memberInfo.phone; //[memberInfo.phoneList objectForKey:keyName];
         
     }
     else if (indexPath.row > phoneCount && indexPath.row <= (phoneCount + emailCount) )
     {
         
-        int index = indexPath.row - phoneCount - 1;
+        long index = indexPath.row - phoneCount - 1;
         cell = [tableView dequeueReusableCellWithIdentifier:@"phoneinfocell" forIndexPath:indexPath];
         UILabel* lbl = (UILabel*)[cell viewWithTag:1006];
         lbl.text = @"email";
         
         lbl = (UILabel*)[cell viewWithTag:1007];
-        lbl.text = memberInfo.emailAddresses[index];
+        lbl.text = memberInfo.email;// memberInfo.emailAddresses[index];
 
         
     }
@@ -369,7 +387,8 @@ PFObject* friendDetailsObject;
 
 - (NSInteger) calculateNumOfRows
 {
-    return 2 + [self.memberInfo.emailAddresses count] + [self.memberInfo.phoneList count];
+        //return 2 + [self.memberInfo.emailAddresses count] + [self.memberInfo.phoneList count];
+        return 2 + 1 + 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

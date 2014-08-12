@@ -95,11 +95,12 @@
                                         if (user) {
                                             // Do stuff after successful login.
                                             NSLog(@"Login successful");
+                                            
                                             [self.delegate authenticateComplete:true];
 
                                         } else {
                                             // The login failed. Check error to see why.
-                                            NSLog([NSString stringWithFormat:(@"error %@", error.description) ]);
+                                            NSLog(@"error %@", error.description);
                                             [self showError:[NSString stringWithFormat:(@"error %@", error.description) ]];
                                         }
                                     }];

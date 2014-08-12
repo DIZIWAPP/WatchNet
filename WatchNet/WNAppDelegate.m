@@ -8,6 +8,9 @@
 
 #import "WNAppDelegate.h"
 #import "MapViewController.h"
+#import "RescueMeUser.h"
+
+
 @implementation WNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,6 +18,8 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"KSxCqPQWT10pBsOqaFlEgK4Ps9ubZ8khqL3cd3RC"
                   clientKey:@"6U9CWaA08Qh5CqELxOC7gR8mQJ23VWN08WqqrFJD"];
+    
+
     
     application.applicationSupportsShakeToEdit = YES;
     
@@ -33,7 +38,6 @@
     }
     
     [_window makeKeyAndVisible];
-
     
     return YES;
 }
@@ -47,7 +51,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
 }
 
-//- (void) showDistressLocation:(CLLocation*)distressLocation
+
 -(void) showDistressLocation:(NSDictionary*) notificationInfo
 {
     
@@ -56,8 +60,8 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"MyAlertView"
                                                         message: [NSString stringWithFormat:@"lat= %@, log = %@", strLatitude, strLongitude]
-                                                       delegate:self cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+                                                        delegate:self cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
     [alertView show];
 
     CLLocation* distressLocation = [[CLLocation alloc]initWithLatitude:[strLatitude doubleValue] longitude:[strLongitude doubleValue]];

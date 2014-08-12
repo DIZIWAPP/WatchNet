@@ -9,6 +9,7 @@
 #import "WNEmailSignupViewController.h"
 #import <Parse/Parse.h>
 #import "WNFBLoginViewController.h"
+#import "WNAppDelegate.h"
 
 @interface WNEmailSignupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userEmail;
@@ -41,10 +42,10 @@
         return;
     }
     
-    PFUser *user = [PFUser user];
-    user.username = _userEmail.text;
-    user.password = _userPassword.text;
-    user.email = _userEmail.text;
+    PFUser *user    = [PFUser user];
+    user.username   = _userEmail.text;
+    user.password   = _userPassword.text;
+    user.email      = _userEmail.text;
     
     // other fields can be set just like with PFObject
     user[@"phone"] = _userPhone.text;
@@ -58,7 +59,7 @@
         } else {
             NSString *errorString = [error userInfo][@"error"];
             [self showError: errorString];
-            NSLog(errorString);
+            NSLog(@"%@",errorString);
             // Show the errorString somewhere and let the user try again.
         }
     }];
@@ -72,6 +73,7 @@
     if([PFUser currentUser])
     {
         [self SignInCompleted];
+        
     }else{
         [self.navigationController popViewControllerAnimated:true];
     }
@@ -81,6 +83,7 @@
 -(void) SignInCompleted
 {
    
+    WNAppDelegate* appDelegate =  (WNAppDelegate*)[UIApplication sharedApplication];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

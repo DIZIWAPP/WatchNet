@@ -122,11 +122,13 @@
     [self loadSettings];
 
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)onSwitchResponderValueChanged:(id)sender {
     
     UISwitch* switchCtrl = sender;

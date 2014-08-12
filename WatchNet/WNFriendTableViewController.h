@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TrustCircleMember.h"
 
-@interface WNFAddFriendTableViewController : UITableViewController
+@interface WNFriendTableViewController : UITableViewController
 
 @property (nonatomic, strong) TrustCircleMember* memberInfo;
+@property (nonatomic)  BOOL isEditMode;
 
 @end

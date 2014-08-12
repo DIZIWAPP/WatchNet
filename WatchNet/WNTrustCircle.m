@@ -10,17 +10,23 @@
 
 #import "TrustCircleMember.h"
 #import <Parse/Parse.h>
+#import "RescueMeUser.h"
+#import "WNAppDelegate.h"
 
 @implementation WNTrustCircle
 
-- (void)fetchCircleForUser: (id) ownerID withCompletionBlock: (void (^)(NSError *error)) callback;
+- (void)fetchTrustCircleWithCompletionBlock: (void (^)(NSError *error)) callback;
 {
 
-    PFQuery* settingsQuery = [PFQuery queryWithClassName:@"UserDetails"];
-    [settingsQuery whereKey:@"responderTo" equalTo:[PFUser currentUser]];
+    PFQuery* usersQuery         = [PFQuery queryWithClassName:@"User"];
+    
+    RescueMeUser* currentUser           = [RescueMeUser getCurrentUser];
+    NSMutableArray* circleMemberEmails  =  currentUser.trustCircleMembers;
 
-    __weak typeof (self) weakSelf = self;
-    [settingsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    //TODO check if user has permission to read user information;//PRIVACY
+    [usersQuery whereKey:@"email" containedIn:circleMemberEmails];
+
+    [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
         // The find succeeded.
         
@@ -30,56 +36,16 @@
 
         for(PFObject* friendDetailsObject in objects)
         {
-            TrustCircleMember* cMember = [[TrustCircleMember alloc]initWithPFObject:friendDetailsObject];
+            TrustCircleMember* cMember = [[TrustCircleMember alloc]initWithParseObject:friendDetailsObject];
             [_circleMembers addObject:cMember];
         }
         
         //make the callback
-        callback(error);
-        /*
-         
-        for(PFObject* friendDetailsObject in objects)
-        {
-            // Do something with the found objects
-           // friendDetailsObject    = [objects lastObject];
-            if(friendDetailsObject == nil)
-            {
-                //                [self.view setNeedsDisplay];
-                
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onClickAdd:)];
-                    weakSelf.navigationItem.rightBarButtonItem = barButton;
-                    
-                    UIButton* inviteBtn = (UIButton*)[weakSelf.tableView viewWithTag:1010];
-                    inviteBtn.hidden = NO;
-                    
-                });
-                
-            }else{
-                //                [self.view setNeedsDisplay];
-                
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIBarButtonItem* barButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(onClickAdd:)];
-                    weakSelf.navigationItem.rightBarButtonItem = barButton;
-                    
-                    UIButton* inviteBtn = (UIButton*)[weakSelf.tableView viewWithTag:1010];
-                    inviteBtn.hidden = YES;
-                    
-                });
-                
-            }
-            
-         
-        
-        }
-
-         */
     } else {
         // Log details of the failure
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
+   callback(error);
 }];
 
 

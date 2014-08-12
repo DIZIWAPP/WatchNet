@@ -10,7 +10,7 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <Parse/Parse.h>
-#import "WNFAddFriendTableViewController.h"
+#import "WNFriendTableViewController.h"
 #import "TrustCircleMember.h"
 
 #import "WNTrustCircle.h"
@@ -49,13 +49,14 @@
     [super viewDidLoad];
     
     self.trustCircle = [[WNTrustCircle alloc] init];
-    
-    [self.trustCircle fetchCircleForUser:nil withCompletionBlock:^(NSError *error){
+
+    [self.trustCircle fetchTrustCircleWithCompletionBlock:^(NSError *error){
         if (!error) {
             [self.tableView reloadData];
         }
        
     }];
+    
     
     /*
     
@@ -95,6 +96,7 @@
 
     _addressBookController = [[ABPeoplePickerNavigationController alloc] init];
     [_addressBookController setPeoplePickerDelegate:self];
+
     [self presentViewController:_addressBookController animated:YES completion:nil];
 }
 #pragma mark - Table view data source
@@ -136,28 +138,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
-    [self updateTrustedMemberWithContact:self.trustCircle.circleMembers[indexPath.row]];
+    _trustedMember = self.trustCircle.circleMembers[indexPath.row];
+    
+    [self showFriendDetails];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void) updateTrustedMemberWithContact:(PFObject*) pfTrustedMemberObject
-{
-    if(!_trustedMember)
-    {
-
-    }
-    
-    _trustedMember.firstName        = pfTrustedMemberObject[@"firstName"];
-    _trustedMember.lastName         = pfTrustedMemberObject[@"lastName"];
-    _trustedMember.emailAddresses   = pfTrustedMemberObject[@"emailAddresses"];
-    _trustedMember.phoneList         = pfTrustedMemberObject[@"phoneNumbers"];
-    _trustedMember.companyName      = @"companyName";
-    
-    [self showFriendDetails]; 
-    
-    
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -227,7 +214,26 @@
     [_addressBookController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+- (BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    
+    return NO;
+}
+
+ - (BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return  NO;
+}
+
+
+
+- (void) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return;
+    
+}
+
+- (void) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person
 {
 
     /*    NSMutableDictionary *contactInfoDict = [[NSMutableDictionary alloc]
@@ -263,7 +269,7 @@
     
     generalCFObject = ABRecordCopyValue(person, kABPersonOrganizationProperty);
     if (generalCFObject) {
-        _trustedMember.companyName = (__bridge NSString*)generalCFObject;
+       // _trustedMember. companyName = (__bridge NSString*)generalCFObject;
         CFRelease(generalCFObject);
     }
 
@@ -299,17 +305,19 @@
             [phoneInfoDict setObject:(__bridge NSString*)currentPhoneValue forKey:@"Phone" ];
 
         }
-
             
         CFRelease(currentPhoneLabel);
         //CFRelease(currentPhoneValue);
     }
     CFRelease(phonesRef);
-    _trustedMember.phoneList = phoneInfoDict;
+//    _trustedMember.phoneList = phoneInfoDict;
+    _trustedMember.tmpPhoneList = [phoneInfoDict mutableCopy];
+    _trustedMember.phone        = @"1212121212";//[phoneInfoDict objectForKey:@"iPhone"];
 
-    ABMultiValueRef emailsRef = ABRecordCopyValue(person, kABPersonEmailProperty);
-    NSArray* emailAddresses = (__bridge NSArray*)ABMultiValueCopyArrayOfAllValues(emailsRef);
-    _trustedMember.emailAddresses = emailAddresses;
+    ABMultiValueRef emailsRef   = ABRecordCopyValue(person, kABPersonEmailProperty);
+    NSArray* emailAddresses     = (__bridge NSArray*)ABMultiValueCopyArrayOfAllValues(emailsRef);
+    _trustedMember.tmpEmailList = [emailAddresses mutableCopy];
+    _trustedMember.email        = [emailAddresses firstObject];
 
     /*
     ABMultiValueRef addressRef = ABRecordCopyValue(person, kABPersonAddressProperty);
@@ -334,8 +342,9 @@
     
     [self showFriendDetails];
 
-    return NO;
+    return;
 }
+
 
 - (void) showFriendDetails
 {
@@ -352,14 +361,18 @@
         NSIndexPath* indexPath =  [self.tableView indexPathForSelectedRow];
         
     //    UINavigationController* nav = sender;
-        WNFAddFriendTableViewController* friendVC = segue.destinationViewController;//[nav.viewControllers firstObject];
+        WNFriendTableViewController* friendVC = segue.destinationViewController;//[nav.viewControllers firstObject];
         friendVC.memberInfo = _trustedMember;//_trustCircle.circleMembers[indexPath.row] ;
     }
 }
+
+
+#if 0
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
 {
     return NO;
 }
+#endif
 
 @end

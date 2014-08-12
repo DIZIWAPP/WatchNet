@@ -42,7 +42,7 @@
 		393B0C7D191E389A0001F772 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C74191E389A0001F772 /* StoreKit.framework */; };
 		393B0C7E191E389A0001F772 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B0C75191E389A0001F772 /* SystemConfiguration.framework */; };
 		399167E2193D7AD800B9FACD /* WNEmailSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399167E1193D7AD800B9FACD /* WNEmailSignupViewController.m */; };
-		39A26098194A03BD00946B77 /* WNFAddFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A26097194A03BD00946B77 /* WNFAddFriendTableViewController.m */; };
+		39A26098194A03BD00946B77 /* WNFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A26097194A03BD00946B77 /* WNFriendTableViewController.m */; };
 		39A2609A194C16DD00946B77 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A26099194C16DD00946B77 /* MessageUI.framework */; };
 		39B89BFB195BE6ED00C9A1B0 /* WNTrustCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B89BFA195BE6ED00C9A1B0 /* WNTrustCircle.m */; };
 		39B9466F191EA2BC00F404CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B9466E191EA2BC00F404CD /* FacebookSDK.framework */; };
@@ -70,6 +70,11 @@
 		39BE2AD919554F4B00A221E3 /* TrustCircleMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BE2AD819554F4B00A221E3 /* TrustCircleMember.m */; };
 		39C6658D19439555006325A7 /* WNSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6658C19439555006325A7 /* WNSettingsTableViewController.m */; };
 		39C665901945732A006325A7 /* WNFTrustedCircleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6658F1945732A006325A7 /* WNFTrustedCircleTableViewController.m */; };
+		39FC209619724C37004487F9 /* ParseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FC208F19724C37004487F9 /* ParseModel.m */; };
+		39FC209719724C37004487F9 /* ParseModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FC209119724C37004487F9 /* ParseModelBase.m */; };
+		39FC209819724C37004487F9 /* ParseModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FC209319724C37004487F9 /* ParseModelUser.m */; };
+		39FC209919724C37004487F9 /* ParseModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FC209519724C37004487F9 /* ParseModelUtils.m */; };
+		39FC209C197256AB004487F9 /* RescueMeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FC209B197256AB004487F9 /* RescueMeUser.m */; };
 		694FEA51191EB71900AECA5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694FEA50191EB71900AECA5B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,8 +135,8 @@
 		393B0C75191E389A0001F772 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		399167E0193D7AD800B9FACD /* WNEmailSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNEmailSignupViewController.h; path = WatchNet/WNEmailSignupViewController.h; sourceTree = "<group>"; };
 		399167E1193D7AD800B9FACD /* WNEmailSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNEmailSignupViewController.m; path = WatchNet/WNEmailSignupViewController.m; sourceTree = "<group>"; };
-		39A26096194A03BD00946B77 /* WNFAddFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNFAddFriendTableViewController.h; sourceTree = "<group>"; };
-		39A26097194A03BD00946B77 /* WNFAddFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNFAddFriendTableViewController.m; sourceTree = "<group>"; };
+		39A26096194A03BD00946B77 /* WNFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNFriendTableViewController.h; path = WatchNet/WNFriendTableViewController.h; sourceTree = "<group>"; };
+		39A26097194A03BD00946B77 /* WNFriendTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNFriendTableViewController.m; path = WatchNet/WNFriendTableViewController.m; sourceTree = "<group>"; };
 		39A26099194C16DD00946B77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		39B89BF9195BE6ED00C9A1B0 /* WNTrustCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNTrustCircle.h; path = WatchNet/WNTrustCircle.h; sourceTree = "<group>"; };
 		39B89BFA195BE6ED00C9A1B0 /* WNTrustCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNTrustCircle.m; path = WatchNet/WNTrustCircle.m; sourceTree = "<group>"; };
@@ -173,10 +178,20 @@
 		39B946B7191F0AF000F404CD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = WatchNet/MapViewController.m; sourceTree = "<group>"; };
 		39BE2AD719554F4B00A221E3 /* TrustCircleMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrustCircleMember.h; path = WatchNet/TrustCircleMember.h; sourceTree = "<group>"; };
 		39BE2AD819554F4B00A221E3 /* TrustCircleMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrustCircleMember.m; path = WatchNet/TrustCircleMember.m; sourceTree = "<group>"; };
-		39C6658B19439555006325A7 /* WNSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNSettingsTableViewController.h; sourceTree = "<group>"; };
-		39C6658C19439555006325A7 /* WNSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNSettingsTableViewController.m; sourceTree = "<group>"; };
-		39C6658E1945732A006325A7 /* WNFTrustedCircleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNFTrustedCircleTableViewController.h; sourceTree = "<group>"; };
-		39C6658F1945732A006325A7 /* WNFTrustedCircleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNFTrustedCircleTableViewController.m; sourceTree = "<group>"; };
+		39C6658B19439555006325A7 /* WNSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNSettingsTableViewController.h; path = WatchNet/WNSettingsTableViewController.h; sourceTree = "<group>"; };
+		39C6658C19439555006325A7 /* WNSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNSettingsTableViewController.m; path = WatchNet/WNSettingsTableViewController.m; sourceTree = "<group>"; };
+		39C6658E1945732A006325A7 /* WNFTrustedCircleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WNFTrustedCircleTableViewController.h; path = WatchNet/WNFTrustedCircleTableViewController.h; sourceTree = "<group>"; };
+		39C6658F1945732A006325A7 /* WNFTrustedCircleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WNFTrustedCircleTableViewController.m; path = WatchNet/WNFTrustedCircleTableViewController.m; sourceTree = "<group>"; };
+		39FC208E19724C37004487F9 /* ParseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseModel.h; sourceTree = "<group>"; };
+		39FC208F19724C37004487F9 /* ParseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseModel.m; sourceTree = "<group>"; };
+		39FC209019724C37004487F9 /* ParseModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseModelBase.h; sourceTree = "<group>"; };
+		39FC209119724C37004487F9 /* ParseModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseModelBase.m; sourceTree = "<group>"; };
+		39FC209219724C37004487F9 /* ParseModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseModelUser.h; sourceTree = "<group>"; };
+		39FC209319724C37004487F9 /* ParseModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseModelUser.m; sourceTree = "<group>"; };
+		39FC209419724C37004487F9 /* ParseModelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseModelUtils.h; sourceTree = "<group>"; };
+		39FC209519724C37004487F9 /* ParseModelUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseModelUtils.m; sourceTree = "<group>"; };
+		39FC209A197256AB004487F9 /* RescueMeUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RescueMeUser.h; path = WatchNet/RescueMeUser.h; sourceTree = "<group>"; };
+		39FC209B197256AB004487F9 /* RescueMeUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RescueMeUser.m; path = WatchNet/RescueMeUser.m; sourceTree = "<group>"; };
 		694FEA50191EB71900AECA5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -220,20 +235,12 @@
 		393B0BFE191E23BE0001F772 = {
 			isa = PBXGroup;
 			children = (
-				39B89BF9195BE6ED00C9A1B0 /* WNTrustCircle.h */,
-				39B89BFA195BE6ED00C9A1B0 /* WNTrustCircle.m */,
-				39BE2AD719554F4B00A221E3 /* TrustCircleMember.h */,
-				39BE2AD819554F4B00A221E3 /* TrustCircleMember.m */,
-				392E0CAA1941915700D4A6A4 /* WNFEmailSigninViewController.h */,
-				392E0CAB1941915700D4A6A4 /* WNFEmailSigninViewController.m */,
-				399167E0193D7AD800B9FACD /* WNEmailSignupViewController.h */,
-				399167E1193D7AD800B9FACD /* WNEmailSignupViewController.m */,
+				39B94679191EEC2200F404CD /* THPinViewController */,
+				39FC208D19724C37004487F9 /* ParseModel */,
+				39FC209A197256AB004487F9 /* RescueMeUser.h */,
+				39FC209B197256AB004487F9 /* RescueMeUser.m */,
 				39B946B6191F0AF000F404CD /* MapViewController.h */,
 				39B946B7191F0AF000F404CD /* MapViewController.m */,
-				39B946AD191EFD8D00F404CD /* WNSettingsViewController.h */,
-				39B946AE191EFD8D00F404CD /* WNSettingsViewController.m */,
-				39B946AA191EFD6000F404CD /* WNFBLoginViewController.h */,
-				39B946AB191EFD6000F404CD /* WNFBLoginViewController.m */,
 				39B946A9191EFD1800F404CD /* WNMainViewControllerDelegate.h */,
 				393B0C10191E23BE0001F772 /* WatchNet */,
 				393B0C2F191E23BE0001F772 /* WatchNetTests */,
@@ -277,7 +284,9 @@
 		393B0C10191E23BE0001F772 /* WatchNet */ = {
 			isa = PBXGroup;
 			children = (
-				39B94679191EEC2200F404CD /* THPinViewController */,
+				394BF8AE197EB39D00D04FF8 /* Circle */,
+				394BF8AF197EB3DE00D04FF8 /* Login/Signup */,
+				394BF8B0197EB41100D04FF8 /* Settings */,
 				393B0C55191E2CDF0001F772 /* Panic2-150x150.png */,
 				393B0C4E191E26880001F772 /* icons */,
 				393B0C4C191E26470001F772 /* bgImg@2x.png */,
@@ -285,12 +294,6 @@
 				393B0C19191E23BE0001F772 /* WNAppDelegate.h */,
 				393B0C1A191E23BE0001F772 /* WNAppDelegate.m */,
 				393B0C1C191E23BE0001F772 /* Main.storyboard */,
-				39C6658E1945732A006325A7 /* WNFTrustedCircleTableViewController.h */,
-				39C6658F1945732A006325A7 /* WNFTrustedCircleTableViewController.m */,
-				39A26096194A03BD00946B77 /* WNFAddFriendTableViewController.h */,
-				39A26097194A03BD00946B77 /* WNFAddFriendTableViewController.m */,
-				39C6658B19439555006325A7 /* WNSettingsTableViewController.h */,
-				39C6658C19439555006325A7 /* WNSettingsTableViewController.m */,
 				393B0C1F191E23BE0001F772 /* WNViewController.h */,
 				393B0C20191E23BE0001F772 /* WNViewController.m */,
 				393B0C22191E23BE0001F772 /* Images.xcassets */,
@@ -364,6 +367,48 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		394BF8AE197EB39D00D04FF8 /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				39C6658E1945732A006325A7 /* WNFTrustedCircleTableViewController.h */,
+				39C6658F1945732A006325A7 /* WNFTrustedCircleTableViewController.m */,
+				39A26096194A03BD00946B77 /* WNFriendTableViewController.h */,
+				39BE2AD719554F4B00A221E3 /* TrustCircleMember.h */,
+				39BE2AD819554F4B00A221E3 /* TrustCircleMember.m */,
+				39A26097194A03BD00946B77 /* WNFriendTableViewController.m */,
+				39B89BF9195BE6ED00C9A1B0 /* WNTrustCircle.h */,
+				39B89BFA195BE6ED00C9A1B0 /* WNTrustCircle.m */,
+			);
+			name = Circle;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		394BF8AF197EB3DE00D04FF8 /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				392E0CAA1941915700D4A6A4 /* WNFEmailSigninViewController.h */,
+				392E0CAB1941915700D4A6A4 /* WNFEmailSigninViewController.m */,
+				399167E0193D7AD800B9FACD /* WNEmailSignupViewController.h */,
+				399167E1193D7AD800B9FACD /* WNEmailSignupViewController.m */,
+				39B946AA191EFD6000F404CD /* WNFBLoginViewController.h */,
+				39B946AB191EFD6000F404CD /* WNFBLoginViewController.m */,
+			);
+			name = Login/Signup;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		394BF8B0197EB41100D04FF8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				39C6658B19439555006325A7 /* WNSettingsTableViewController.h */,
+				39C6658C19439555006325A7 /* WNSettingsTableViewController.m */,
+				39B946AD191EFD8D00F404CD /* WNSettingsViewController.h */,
+				39B946AE191EFD8D00F404CD /* WNSettingsViewController.m */,
+			);
+			name = Settings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		39B94679191EEC2200F404CD /* THPinViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,8 +426,22 @@
 				39B9468A191EEC2200F404CD /* THPinViewController.h */,
 				39B9468B191EEC2200F404CD /* THPinViewController.m */,
 			);
-			name = THPinViewController;
-			path = ../THPinViewController;
+			path = THPinViewController;
+			sourceTree = "<group>";
+		};
+		39FC208D19724C37004487F9 /* ParseModel */ = {
+			isa = PBXGroup;
+			children = (
+				39FC208E19724C37004487F9 /* ParseModel.h */,
+				39FC208F19724C37004487F9 /* ParseModel.m */,
+				39FC209019724C37004487F9 /* ParseModelBase.h */,
+				39FC209119724C37004487F9 /* ParseModelBase.m */,
+				39FC209219724C37004487F9 /* ParseModelUser.h */,
+				39FC209319724C37004487F9 /* ParseModelUser.m */,
+				39FC209419724C37004487F9 /* ParseModelUtils.h */,
+				39FC209519724C37004487F9 /* ParseModelUtils.m */,
+			);
+			path = ParseModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,9 +567,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FC209C197256AB004487F9 /* RescueMeUser.m in Sources */,
 				393B0C49191E24050001F772 /* UzysSMMenuItem.m in Sources */,
 				39B94692191EEC2200F404CD /* THPinViewController.m in Sources */,
 				39B9468E191EEC2200F404CD /* THPinInputCircleView.m in Sources */,
+				39FC209619724C37004487F9 /* ParseModel.m in Sources */,
 				39B9468F191EEC2200F404CD /* THPinNumButton.m in Sources */,
 				39C665901945732A006325A7 /* WNFTrustedCircleTableViewController.m in Sources */,
 				39B89BFB195BE6ED00C9A1B0 /* WNTrustCircle.m in Sources */,
@@ -520,14 +581,17 @@
 				393B0C21191E23BE0001F772 /* WNViewController.m in Sources */,
 				393B0C17191E23BE0001F772 /* main.m in Sources */,
 				393B0C4A191E24050001F772 /* UzysSMMenuItemView.m in Sources */,
+				39FC209819724C37004487F9 /* ParseModelUser.m in Sources */,
 				393B0C1B191E23BE0001F772 /* WNAppDelegate.m in Sources */,
 				39B946AF191EFD8D00F404CD /* WNSettingsViewController.m in Sources */,
 				39B94691191EEC2200F404CD /* THPinView.m in Sources */,
-				39A26098194A03BD00946B77 /* WNFAddFriendTableViewController.m in Sources */,
+				39A26098194A03BD00946B77 /* WNFriendTableViewController.m in Sources */,
 				39B946BA191F0AF000F404CD /* MapViewController.m in Sources */,
+				39FC209719724C37004487F9 /* ParseModelBase.m in Sources */,
 				393B0C48191E24050001F772 /* UzysSlideMenu.m in Sources */,
 				392E0CAC1941915700D4A6A4 /* WNFEmailSigninViewController.m in Sources */,
 				39C6658D19439555006325A7 /* WNSettingsTableViewController.m in Sources */,
+				39FC209919724C37004487F9 /* ParseModelUtils.m in Sources */,
 				39B9468D191EEC2200F404CD /* THPinInputCirclesView.m in Sources */,
 				39B94690191EEC2200F404CD /* THPinNumPadView.m in Sources */,
 			);
